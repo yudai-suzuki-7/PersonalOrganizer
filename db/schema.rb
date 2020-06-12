@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_10_151935) do
+ActiveRecord::Schema.define(version: 2020_06_12_073733) do
 
   create_table "events", force: :cascade do |t|
     t.string "title"
     t.string "body"
     t.datetime "start_date"
     t.datetime "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "logs", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.string "log_img_id"
+    t.datetime "start_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

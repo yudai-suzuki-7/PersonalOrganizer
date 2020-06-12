@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>タイトル</strong>
+  <%= @log.title %>
+</p>
+
+<p>
+  <strong>時間</strong>
+  <%= @log.start_time.strftime("%Y-%m-%d") %>
+</p>
+
+<p>
+  <strong>内容</strong>
+  <%= @log.content %>
+</p>
+
+<%= link_to 'Edit', edit_log_path(@log) %> |
+<%= link_to 'Back', logs_path %>

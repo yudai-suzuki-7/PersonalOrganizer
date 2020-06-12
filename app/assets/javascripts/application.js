@@ -18,6 +18,7 @@
 //= require jquery
 //= require moment
 //= require fullcalendar
+//= require fullcalendar/lang/ja
 
 $(function() {
     // 画面遷移を検知
@@ -25,7 +26,9 @@ $(function() {
         if ($('#calendar').length) {
 
             function Calendar() {
-                return $('#calendar').fullCalendar({});
+                return $('#calendar').fullCalendar({
+                    lang: 'ja'
+                });
             }
 
             function clearCalendar() {
@@ -43,13 +46,14 @@ $(function() {
                 //カレンダー上部を年月で表示させる
                 titleFormat: 'YYYY年 M月',
                 //曜日を日本語表示
-                dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
                 //ボタンのレイアウト
                 header: {
-                    left: '',
+                    left: 'month, agendaWeek',
                     center: 'title',
                     right: 'today prev,next'
                 },
+                // デフォルトで表示させたいテーブル（この場合は、週のカレンダーを表示させる）
+                defaultView: 'month',
                 //終了時刻がないイベントの表示間隔
                 defaultTimedEventDuration: '03:00:00',
                 buttonText: {
@@ -57,13 +61,13 @@ $(function() {
                     next: '次',
                     prevYear: '前年',
                     nextYear: '翌年',
-                    today: '今日',
-                    month: '月',
-                    week: '週',
-                    day: '日'
+                    today: 'Today',
+                    month: 'monthly',
+                    week: 'weekly',
+                    //day: 'dayly'
                 },
                 // Drag & Drop & Resize
-                editable: true,
+                //editable: true,
                 //イベントの時間表示を２４時間に
                 timeFormat: "HH:mm",
                 //イベントの色を変える

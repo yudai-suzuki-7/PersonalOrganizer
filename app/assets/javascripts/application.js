@@ -20,15 +20,15 @@
 //= require fullcalendar
 //= require fullcalendar/lang/ja
 
+
+
 $(function() {
     // 画面遷移を検知
     $(document).on('turbolinks:load', function() {
         if ($('#calendar').length) {
 
             function Calendar() {
-                return $('#calendar').fullCalendar({
-                    lang: 'ja'
-                });
+                return $('#calendar').fullCalendar({});
             }
 
             function clearCalendar() {
@@ -52,13 +52,15 @@ $(function() {
                     center: 'title',
                     right: 'today prev,next'
                 },
+                lang: 'ja',
+                timeZone: 'Asia/Tokyo',
                 // デフォルトで表示させたいテーブル（この場合は、週のカレンダーを表示させる）
                 defaultView: 'month',
                 //終了時刻がないイベントの表示間隔
                 defaultTimedEventDuration: '03:00:00',
                 buttonText: {
-                    prev: '前',
-                    next: '次',
+                    prev: '<',
+                    next: '>',
                     prevYear: '前年',
                     nextYear: '翌年',
                     today: 'Today',

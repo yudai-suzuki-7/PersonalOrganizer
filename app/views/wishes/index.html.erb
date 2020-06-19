@@ -17,14 +17,24 @@
 </div>
 
 
+<table class="wish_list">
+  <tr>
+    <th>やりたいこと</th>
+    <th>分析</th>
+    <th colspan="2"></th>
+  </tr>
+
   <% @wishes.each do |wish| %>
-
-    <%= wish.wish_text %>
-
-    <%= link_to "edit", edit_wish_path(wish) %>
-    <%= link_to "delete", wish_path(wish), method: :delete %>
-    
-    <br>
-
-
+    <tr>
+      <td><%= wish.wish_text %></td>
+      <% if wish.logictree.nil? %>
+         <td><%= link_to "logical tree",  wish_logictrees_path %></td>
+      <% else %>
+        <td><%= link_to "logical tree", wish_path(wish) %></td>
+      <% end %>
+      <td><%= link_to "edit", edit_wish_path(wish) %></td>
+      <td><%= link_to "delete", wish_path(wish), method: :delete %></td>
+      <br>
+    </tr>
   <% end %>
+</table>

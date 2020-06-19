@@ -1,0 +1,58 @@
+<h1>LogicTree</h1>
+
+<%= form_for [@wish,@logictree] do |form| %>
+
+  <div class="wish">
+    <h1><%= @wish.wish_text %></h1>
+  </div>
+
+  <div class="logic1">
+    <%= form.label :logic1 %>
+    <%= form.text_field :logic1 %>
+  </div>
+
+  <div class="logic11">
+    <%= form.label :logic11 %>
+    <%= form.text_field :logic11 %>
+  </div>
+
+  <div class="logic12">
+    <%= form.label :logic12 %>
+    <%= form.text_field :logic12 %>
+  </div>
+
+  <div class="logic1">
+    <%= form.label :logic2 %>
+    <%= form.text_field :logic2 %>
+  </div>
+
+  <div class="logic21">
+    <%= form.label :logic21 %>
+    <%= form.text_field :logic21 %>
+  </div>
+
+  <div class="logic22">
+    <%= form.label :logic22 %>
+    <%= form.text_field :logic22 %>
+  </div>
+
+  <div class="logic3">
+    <%= form.label :logic3 %>
+    <%= form.text_field :logic3 %>
+  </div>
+
+  <div class="logic11">
+    <%= form.label :logic31 %>
+    <%= form.text_field :logic31 %>
+  </div>
+
+  <div class="logic12">
+    <%= form.label :logic32 %>
+    <%= form.text_field :logic32 %>
+  </div>
+
+  <div class="submit">
+    <%= form.submit %>
+  </div>
+
+<% end %>

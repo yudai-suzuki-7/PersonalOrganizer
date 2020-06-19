@@ -1,20 +1,23 @@
-<%= form_with(model: @log, local: true) do |form| %>
+<%= form_for @log do |form| %>
 
   <div class="title">
-    <%= form.label :title %>
+    <%= form.label :title, "タイトル" %>
     <%= form.text_field :title %>
   </div>
 
     <div class="time">
-    <%= form.label :start_time %>
-    <%= form.datetime_select :start_time %>
+    <%= form.label :start_time, "日付" %>
+    <%= form.date_select :start_time, use_month_numbers:true, date_separator:" / " %>
   </div>
 
   <div class="content">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
+    <%= form.label :content, "内容" %>
+    <%= form.text_area :content %>
   </div>
 
+  <div class="image">
+    <%= form.label :log_img, "画像" %>
+    <%= form.attachment_field :log_img %>
 
   <div class="submit">
     <%= form.submit %>

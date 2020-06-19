@@ -10,9 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_13_073449) do
+ActiveRecord::Schema.define(version: 2020_06_19_094355) do
+
+  create_table "booklogs", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "book_title"
+    t.string "book_author"
+    t.string "book_img_id"
+    t.text "book_impression"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "events", force: :cascade do |t|
+    t.integer "user_id"
     t.string "title"
     t.string "body"
     t.datetime "start_date"
@@ -21,7 +32,23 @@ ActiveRecord::Schema.define(version: 2020_06_13_073449) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "logictrees", force: :cascade do |t|
+    t.integer "wish_id"
+    t.string "logic1"
+    t.string "logic11"
+    t.string "logic12"
+    t.string "logic2"
+    t.string "logic21"
+    t.string "logic22"
+    t.string "logic3"
+    t.string "logic31"
+    t.string "logic32"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "logs", force: :cascade do |t|
+    t.integer "user_id"
     t.string "title"
     t.text "content"
     t.string "log_img_id"
@@ -44,6 +71,7 @@ ActiveRecord::Schema.define(version: 2020_06_13_073449) do
   end
 
   create_table "wishes", force: :cascade do |t|
+    t.integer "user_id"
     t.string "wish_text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

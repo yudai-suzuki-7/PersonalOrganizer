@@ -1,0 +1,2 @@
+module BooklogsHelper
+end

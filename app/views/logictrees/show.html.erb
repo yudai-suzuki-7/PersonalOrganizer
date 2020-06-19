@@ -1,0 +1,60 @@
+<h1>LogicTree</h1>show_logictree
+
+<%= form_for [@wish,@logictree],url:wish_logictrees_path, method: :POST do |form| %>
+
+  <div class="wish">
+    <%= @wish.wish_text %>
+  </div>
+
+  <div class="logic1">
+    <%= form.label :logic1 %>
+    <%= form.text_field :logic1 %>
+  </div>
+
+  <div class="logic11">
+    <%= form.label :logic11 %>
+    <%= form.text_field :logic11 %>
+  </div>
+
+  <div class="logic12">
+    <%= form.label :logic12 %>
+    <%= form.text_field :logic12 %>
+  </div>
+
+  <div class="logic1">
+    <%= form.label :logic2 %>
+    <%= form.text_field :logic2 %>
+  </div>
+
+  <div class="logic21">
+    <%= form.label :logic21 %>
+    <%= form.text_field :logic21 %>
+  </div>
+
+  <div class="logic22">
+    <%= form.label :logic22 %>
+    <%= form.text_field :logic22 %>
+  </div>
+
+  <div class="logic3">
+    <%= form.label :logic3 %>
+    <%= form.text_field :logic3 %>
+  </div>
+
+  <div class="logic11">
+    <%= form.label :logic31 %>
+    <%= form.text_field :logic31 %>
+  </div>
+
+  <div class="logic12">
+    <%= form.label :logic32 %>
+    <%= form.text_field :logic32 %>
+  </div>
+
+  <div class="submit">
+    <%= form.submit %>
+  </div>
+
+<% end %>
+
+<%= link_to "戻る",wishes_path %>

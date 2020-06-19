@@ -11,7 +11,10 @@
  * It is generally better to create a new file per style scope.
  *
  *= require simple_calendar
- *= require_tree .
- *= require_self
+ *require_tree .
+ *require_self
  *= require fullcalendar
  */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";

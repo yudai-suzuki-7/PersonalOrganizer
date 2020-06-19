@@ -8,11 +8,12 @@ class LogsController < ApplicationController
   end
 
   def show
-    @log = Llog.find(params[:id])
+    @log = Log.find(params[:id])
   end
 
   def create
     log = Log.new(log_params)
+    log.user_id = current_user.id
     log.save
     redirect_to logs_path
   end
@@ -39,7 +40,7 @@ class LogsController < ApplicationController
   private
 
   def log_params
-    params.require(:log).permit(:title, :content, :log_img, :start_time)
+    params.require(:log).permit(:user_id, :title, :content, :log_img, :start_time)
   end
 
 end

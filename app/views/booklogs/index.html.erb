@@ -1,4 +1,12 @@
-<% @booklogs.each do |booklog| %>
-<%= booklogs.book_title %>
-
-<% end %>
+<div class="container">
+    <div class="row">
+        <% @booklogs.each do |f| %>
+          <div class='col-3'>
+            <img class="book-img" src="<%= f.book_img_url %>" alt="本画像"></tr><br>
+            題名:<%= f.book_title %><br>
+            著者:<%= f.book_author %><br>
+            <%= link_to "詳細", booklog_path(f)  %>
+          </div>
+        <% end %>
+  </div>
+</div>

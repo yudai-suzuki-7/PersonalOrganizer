@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'books/search'
   root :to => 'homes#home'
 
   devise_for :users, controllers: {
@@ -7,6 +6,7 @@ Rails.application.routes.draw do
     sessions: "users/sessions",
   }
 
+  resource :users, only:[:create, :show, :edit, :update]
   resources :events
   resources :logs
   resources :booklogs

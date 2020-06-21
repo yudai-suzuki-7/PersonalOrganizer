@@ -1,0 +1,11 @@
+show
+        <div class="col-7">
+            <b>登録情報　</b>
+              <%= form_for(@user,url: users_path) do |f| %>
+              <%= f.select :todo_status [["無効",0],["有効",1]] %>
+              <%= f.select :booklog_status [["無効",0],["有効",1]] %>
+              <%= f.select :logicaltree_status [["無効",0],["有効",1]] %>
+              <%= f.submit%>
+              <% end %>
+              <%= link_to "ユーザー情報を変更する", edit_user_registration_path,class:"btn-sm btn-primary" %></span>
+        </div>

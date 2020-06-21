@@ -74,7 +74,7 @@ gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'simple_calendar'
 gem 'rename'
-gem 'bootstrap-sass', '~> 3.4.1'
+gem 'bootstrap', '~> 4.1.1'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'rakuten_web_service'

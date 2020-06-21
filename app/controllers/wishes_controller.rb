@@ -6,7 +6,12 @@ class WishesController < ApplicationController
 
   def show
     @wish = Wish.find(params[:id])
-    @logictree = Logictree.new
+    @logictree = Logictree.find_or_initialize_by(wish_id:@wish.id)
+    if @logictree.persisted?
+      render "logictrees/show"
+    else
+    end
+
   end
 
   def edit
@@ -17,8 +22,11 @@ class WishesController < ApplicationController
 	def create
 		wish = Wish.new(wish_params)
     wish.user_id = current_user.id
-    wish.save
-    redirect_to action: :index
+    if wish.save
+      redirect_to action: :index
+    else
+      redirect_to action: :index
+    end
 	end
 
   def edit

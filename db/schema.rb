@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_06_20_002911) do
 
   create_table "booklogs", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "user_id", null: false
     t.string "book_title"
     t.string "book_author"
     t.string "book_img_url"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2020_06_20_002911) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "user_id", null: false
     t.string "title"
     t.string "body"
     t.datetime "start_date"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2020_06_20_002911) do
   end
 
   create_table "logictrees", force: :cascade do |t|
-    t.integer "wish_id"
+    t.integer "wish_id", null: false
     t.string "logic1"
     t.string "logic11"
     t.string "logic12"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2020_06_20_002911) do
   end
 
   create_table "logs", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "user_id", null: false
     t.string "title"
     t.text "content"
     t.string "log_img_id"
@@ -74,16 +74,19 @@ ActiveRecord::Schema.define(version: 2020_06_20_002911) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "todo_status"
+    t.integer "booklog_status"
+    t.integer "logictree_status"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   create_table "wishes", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "wish_text"
+    t.integer "user_id", null: false
+    t.string "wish_text", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,13 +1,13 @@
 class LogictreesController < ApplicationController
   def show
     @wish = Wish.find(params[:wish_id])
-    @logictree = Logictree.find(params[:wish_id])
+    @logictree = Logictree.find_by(wish_id:@wish.id)
   end
 
   def create
     @wish = Wish.find(params[:wish_id])
     @logictree = Logictree.new(logictree_params)
-     logictree.user_id = current_user.id
+    @logictree.wish_id = @wish.id
     if @logictree.save
       redirect_to wish_logictrees_path(params[:wish_id])
     else

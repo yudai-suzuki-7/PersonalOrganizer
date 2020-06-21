@@ -1,7 +1,7 @@
 class CreateLogictrees < ActiveRecord::Migration[5.2]
   def change
     create_table :logictrees do |t|
-      t.integer :wish_id
+      t.integer :wish_id, null: false
       t.string :logic1
       t.string :logic11
       t.string :logic12

@@ -1,6 +1,6 @@
 <h1>LogicTree</h1>show_logictree
 
-<%= form_for [@wish,@logictree],url:wish_logictrees_path, method: :POST do |form| %>
+<%= form_for [@wish,@logictree],url:wish_logictrees_path(@wish), method: :POST do |form| %>
 
   <div class="wish">
     <%= @wish.wish_text %>

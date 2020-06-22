@@ -1,3 +1,24 @@
+<div class="row">
+<p id="notice"><%= notice %></p>
+<h1>Log</h1>
+</div>
+
+<div class="row">
+<div class="calendar col-6">
+<%= month_calendar events: @logs do |date, logs| %>
+  <%= date.day %>
+
+  <% logs.each do |log| %>
+    <div>
+      <%= link_to log.title, log %>
+    </div>
+  <% end %>
+<% end %>
+</div>
+
+
+<div class="col-6">
+
 <%= form_with(model: @log, local: true) do |form| %>
 
   <div class="title">
@@ -7,7 +28,7 @@
 
     <div class="time">
     <%= form.label :start_time %>
-    <%= form.datetime_select :start_time %>
+    <%= form.date_select :start_time, use_month_numbers:true, date_separator:" / " %>
   </div>
 
   <div class="content">
@@ -15,14 +36,11 @@
     <%= form.text_area :content %>
   </div>
 
-  <div class="content">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
-  </div>
-
-
   <div class="submit">
     <%= form.submit %>
   </div>
 
 <% end %>
+
+</div>
+</div>

@@ -1,0 +1,17 @@
+<h1>ToDo List</h1>
+
+<div class="add-form">
+  <%= form_for(@todo,url: todo_path) do |form| %>
+
+  <div class="todo_text">
+    <%= form.label :todo_text %>
+    <%= form.text_field :todo_text %>
+  </div>
+
+  <div class="submit">
+    <%= form.submit %>
+  </div>
+
+  <% end %>
+
+</div>

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resource :users, only:[:create, :show, :edit, :update]
   resources :events
   resources :logs
+  resources :todos
+  patch 'check/:id' => 'todos#check' ,as: "check"
   resources :booklogs
   get 'books' => 'books#search'
 

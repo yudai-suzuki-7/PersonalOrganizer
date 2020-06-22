@@ -1,8 +1,25 @@
+<div class="row">
 <p id="notice"><%= notice %></p>
-
 <h1>Log</h1>
+</div>
 
+<div class="row">
+<div class="calendar col-6">
+<%= month_calendar events: @logs do |date, logs| %>
+  <%= date.day %>
+
+  <% logs.each do |log| %>
+    <div>
+      <%= link_to log.title, log %>
+    </div>
+  <% end %>
+<% end %>
+</div>
+
+
+<div class="col-6">
 <table>
+  <p>最近の日記</p>
   <thead>
     <tr>
       <th>タイトル</th>
@@ -27,13 +44,5 @@
 <br>
 
 <%= link_to '日記をかく', new_log_path %>
-
-<%= month_calendar events: @logs do |date, logs| %>
-  <%= date.day %>
-
-  <% logs.each do |log| %>
-    <div>
-      <%= link_to log.title, log %>
-    </div>
-  <% end %>
-<% end %>
+</div>
+</div>

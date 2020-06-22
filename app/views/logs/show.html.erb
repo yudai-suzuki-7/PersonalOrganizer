@@ -1,15 +1,35 @@
+<div class="row">
 <p id="notice"><%= notice %></p>
+<h1>Log</h1>
+</div>
 
+<div class="row">
+<div class="calendar col-6">
+<%= month_calendar events: @logs do |date, logs| %>
+  <%= date.day %>
+
+  <% logs.each do |log| %>
+    <div>
+      <%= link_to log.title, log %>
+    </div>
+  <% end %>
+<% end %>
+</div>
+
+
+<div class="col-6">
 <p>
-  <strong>タイトル</strong>
-  <%= @log.title %>
-  <%= @log.start_time.strftime("%Y-%m-%d") %>
+  <%= @log.start_time.strftime("%Y/%m/%d") %><br>
+  <strong><%= @log.title %></strong>
 </p>
 
+<%= attachment_image_tag(@log, :log_img, alt:"本画像", class:"figure-img img-fluid rounded") %>
+
 <p>
-  <strong>内容</strong>
   <%= @log.content %>
 </p>
 
 <%= link_to 'Edit', edit_log_path(@log) %> |
 <%= link_to 'Back', logs_path %>
+</div>
+</div>

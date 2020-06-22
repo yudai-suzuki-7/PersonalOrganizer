@@ -1,19 +1,19 @@
-<table border="1">
-    <thead>
-        <tr>
-            <th></th>
-            <th colspan="3">本情報</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td rowspan="2"><%= link_to "詳細", booklog_path(f)  %></td>
-          <td>題名</td>
-          <td><%= f.book_title %></td>
-          <td rowspan="2"><img class="book-img" src="<%= f.book_img_url %>" alt="本画像"></td>
-        </tr>
-        <tr>
-            <td>著者</td>
-            <td><%= f.book_author %></td>
-        </tr>
-</table>
+<div class="row">
+    <div class="col-5"><img cclass="book-img img-thumbnail" src="<%= @booklog.book_img_url %>" alt="本画像", width="200" height="300"></div>
+    <div class="col-7">
+        <p>
+           題名： <%= @booklog.book_title %>
+        </p>
+        <p>
+           著者： <%= @booklog.book_author %>
+        </p>
+        <p>-感想-</p>
+        <p>
+          <%= @booklog.book_impression %>
+        </p>
+        <p>
+            <%= link_to "戻る", booklogs_path %>|
+            <%= link_to "編集", edit_booklog_path(@booklog) %>
+        </p>
+    </div>
+</div>

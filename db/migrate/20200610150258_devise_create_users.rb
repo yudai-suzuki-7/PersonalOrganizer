@@ -34,11 +34,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
       t.string :name, null: false
       t.timestamps null: false
-      t.integer :todo_status,　default: 0
-      t.integer :booklog_status,　default: 0
-      t.integer :logictree_status,　default: 0
-
-
 
     end
 

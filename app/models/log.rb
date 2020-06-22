@@ -4,4 +4,5 @@ class Log < ApplicationRecord
   attachment :log_img
 
   validates :user_id, presence: true
+
 end

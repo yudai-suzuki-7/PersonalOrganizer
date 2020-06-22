@@ -1,13 +1,15 @@
 class LogsController < ApplicationController
   def index
-    @logs = Log.all
+    @logs = Log.where(user_id: current_user)
   end
 
   def new
+    @logs = Log.where(user_id: current_user)
     @log = Log.new
   end
 
   def show
+    @logs = Log.where(user_id: current_user)
     @log = Log.find(params[:id])
   end
 
@@ -25,6 +27,7 @@ class LogsController < ApplicationController
   end
 
   def edit
+    @logs = Log.all
     @log = Log.find(params[:id])
   end
 

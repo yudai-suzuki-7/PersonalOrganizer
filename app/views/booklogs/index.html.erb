@@ -1,10 +1,15 @@
+<h1>BookLog!</h1>
+
+<%= link_to "本を追加する", books_path %>
+
 <div class="row">
   <% @booklogs.each do |f| %>
     <div class='col-4'>
-      <img class="book-img" src="<%= f.book_img_url %>" alt="本画像"></tr><br>
+      <img class="book-img img-thumbnail" src="<%= f.book_img_url %>" alt="本画像" alt="本画像", width="200" height="300"></tr><br>
         題名:<%= f.book_title %><br>
         著者:<%= f.book_author %><br>
-        <%= link_to "詳細", booklog_path(f)  %>
+        <%= link_to "詳細", booklog_path(f) %>
+        <%= link_to "消去", booklog_path(f), method: :delete, data: { confirm: '消去しますか？' } %>
     </div>
   <% end %>
 </div>

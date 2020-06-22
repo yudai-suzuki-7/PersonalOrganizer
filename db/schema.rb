@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_20_002911) do
+ActiveRecord::Schema.define(version: 2020_06_22_112220) do
 
   create_table "booklogs", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -48,12 +48,15 @@ ActiveRecord::Schema.define(version: 2020_06_20_002911) do
     t.string "logic1"
     t.string "logic11"
     t.string "logic12"
+    t.string "logic13"
     t.string "logic2"
     t.string "logic21"
     t.string "logic22"
+    t.string "logic23"
     t.string "logic3"
     t.string "logic31"
     t.string "logic32"
+    t.string "logic33"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -68,6 +71,14 @@ ActiveRecord::Schema.define(version: 2020_06_20_002911) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "todos", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "todo_text", null: false
+    t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -77,9 +88,8 @@ ActiveRecord::Schema.define(version: 2020_06_20_002911) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "todo_status"
-    t.integer "booklog_status"
-    t.integer "logictree_status"
+    t.integer "todo_status", default: 0
+    t.integer "booklog_status", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -19,18 +19,18 @@ class LogictreesController < ApplicationController
   end
 
   def update
-    @logictree = Logictree.find(params[:id])
+    @logictree = Logictree.find(params[:wish_id])
     if @logictree.update(logictree_params)
-      render action: :show, noice:"更新しました"
+      redirect_to wish_logictrees_path(@logictree.wish_id), noice:"更新しました"
     else
-      render action: :show, noice:"更新失敗・・・"
+      render action: :index, noice:"更新失敗・・・"
     end
   end
 
 
   private
   def logictree_params
-     params.require(:logictree).permit(:wish_id, :logic1, :logic11, :logic12, :logic2, :logic21, :logic22, :logic3, :logic31, :logic32)
+     params.require(:logictree).permit(:wish_id, :logic1, :logic11, :logic12, :logic13, :logic2, :logic21, :logic22, :logic23, :logic3, :logic31, :logic32, :logic33)
   end
 
 end

@@ -6,8 +6,7 @@ class BooksController < ApplicationController
     if @title.present?
       results = RakutenWebService::Books::Book.search({
         title: @title,
-        booksGenreId: '001004',
-        hits: 20,
+        hits: 18,
       })
 
       results.each do |result|

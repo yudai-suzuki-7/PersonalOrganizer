@@ -1,3 +1,24 @@
+
+<div class="row">
+<p id="notice"><%= notice %></p>
+<h1>Log</h1>
+</div>
+
+<div class="row">
+<div class="calendar col-6">
+<%= month_calendar events: @logs do |date, logs| %>
+  <%= date.day %>
+
+  <% logs.each do |log| %>
+    <div>
+      <%= link_to log.title, log %>
+    </div>
+  <% end %>
+<% end %>
+</div>
+
+<div class="col-6">
+<strong>-日記を書く-</strong>
 <%= form_for @log do |form| %>
 
   <div class="title">
@@ -20,7 +41,9 @@
     <%= form.attachment_field :log_img %>
 
   <div class="submit">
-    <%= form.submit %>
+    <%= form.submit "保存" %>
   </div>
 
 <% end %>
+</div>
+</div>

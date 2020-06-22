@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
-
+<div class="row">
 <h1>Schedule</h1>
-
+</div>
+<div class="row">
+  <div class="col-8">
 <table>
   <thead>
     <tr>
@@ -15,6 +17,8 @@
 
   <tbody>
     <% @events.each do |event| %>
+    <% if event.end_date <=  Time.zone.now &&  Time.zone.now <= event.start_date %>
+
       <tr>
         <td><%= event.title %></td>
         <td><%= event.body %></td>
@@ -24,6 +28,8 @@
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: '削除しますか?' } %></td>
       </tr>
+    <% else %>
+    <% end %>
     <% end %>
   </tbody>
 </table>
@@ -36,3 +42,6 @@
 
 
 <div id="calendar"></div>
+</div>
+
+</div>

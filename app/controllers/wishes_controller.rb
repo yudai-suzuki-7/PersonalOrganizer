@@ -1,7 +1,7 @@
 class WishesController < ApplicationController
 	def index
 		@wish = Wish.new
-		@wishes = Wish.all
+		@wishes = Wish.where(user_id: current_user)
 	end
 
   def show

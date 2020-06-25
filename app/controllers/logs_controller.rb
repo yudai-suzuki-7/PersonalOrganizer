@@ -23,7 +23,7 @@ class LogsController < ApplicationController
   def destroy
     @log = Log.find(params[:id])
     @log.destroy
-    redirect_to logs_path, notice:"削除しました"
+    redirect_to logs_path
   end
 
   def edit
@@ -34,7 +34,7 @@ class LogsController < ApplicationController
   def update
     @log = Log.find(params[:id])
     if @log.update(log_params)
-      redirect_to logs_path, notice: "編集しました"
+      redirect_to logs_path
     else
       render 'edit'
     end

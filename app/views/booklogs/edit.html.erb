@@ -1,22 +1,25 @@
-<h1>読書日記</h1>
+<div class="row">
+<h1>BookLog!</h1>
+</div>
 
 <%= form_for(@booklog) do |f| %>
-<div class="row">
-    <div class="col-5">
+<div class="row booklog">
+    <div class="col-4 text-center">
         <img class="book-img img-thumbnail" src="<%= @booklog.book_img_url %>" alt="本画像" , width="200" height="300">
     </div>
     <div class="col-7">
-        <div class="book_title">
-            タイトル：<%= @booklog.book_title %>
-        </div>
-        <div class="book_author">
-            著者：<%= @booklog.book_author %>
-        </div>
-        <div class="content">
-            <%= f.text_area :book_impression %>
-        </div>
-        <div>
-            <%= f.submit "保存"%>
+        <h3 class="book_title glyphicon glyphicon-book">
+            <%= @booklog.book_title %>
+        </h3><br>
+        <h3 class="book_author glyphicon glyphicon-pencil">
+          <%= @booklog.book_author %>
+        </h3><br>
+        <p class="content mt-4">
+          <h3>-感想-</h3>
+          <%= f.text_area :book_impression %>
+        </p>
+        <div class="row">
+          <p class="col-2 offset-6 button"><%= submit_tag '保存',class:"btn btn-dark" %></p>
         </div>
     </div>
 </div>

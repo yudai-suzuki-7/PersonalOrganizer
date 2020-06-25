@@ -1,0 +1,40 @@
+// Place all the styles related to the todos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$font: #333;
+
+.todo-list {
+    table {
+        counter-reset: rowCount;
+    }
+
+    tbody tr {
+        counter-increment: rowCount;
+    }
+
+    tbody tr td:first-child::before {
+        content: counter(rowCount);
+    }
+
+    th {
+        text-align: center;
+    }
+
+    td {
+        font-color: $font;
+    }
+
+}
+
+.link-icon {
+    font-size: 15px;
+}
+
+.check-icon {
+    font-size: 15px;
+}
+
+.head-text {
+    font-size: 15px;
+}

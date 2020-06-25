@@ -1,41 +1,47 @@
-<h1>ToDo List</h1>
-
-<div class="add-form">
-  <%= form_for(@todo,url: todos_path) do |form| %>
-
-  <div class="todo_text">
-    <%= form.label :todo_text %>
-    <%= form.text_field :todo_text %>
-  </div>
-
-  <div class="submit">
-    <%= form.submit %>
-  </div>
-
-  <% end %>
-
+<div class="row mx-3">
+    <h1>ToDo List</h1>
 </div>
-
-
-<table class="todo_list">
-  <tr>
-    <th></th>
-    <th>やること</th>
-    <th colspan="2"></th>
-  </tr>
-
-  <% @todos.each do |todo| %>
-    <tr>
-      <td>
-        <% if todo.status == "done" %>
-        <%= link_to "", check_path(todo), method: :patch, class:"glyphicon glyphicon-ok-circle text-danger" %>
-        <% else %>
-        <%= link_to "", check_path(todo), method: :patch, class:"glyphicon glyphicon-ok-circle text-secondary" %>
+<div class="row mx-3">
+    <div class="todo-add-form">
+        <%= form_for(@todo,url: todos_path) do |form| %>
+        <span class="todo-text">
+            <%= form.text_field :todo_text, style:"height:30px; width:200px;" %>
+        </span>
+        <span class="submit">
+            <%= form.submit('追加',class: "btn btn-secondary btn-sm") %>
+        </span>
         <% end %>
-        </td>
-      <td><%= todo.todo_text %></td>
-      <td><%= link_to "編集", edit_todo_path(todo) %></td>
-      <td><%= link_to "", todo_path(todo),class:"glyphicon glyphicon-trash",  method: :delete, data: { confirm: '消去しますか？' } %></td>
-    </tr>
-  <% end %>
-</table>
+    </div>
+    <table class="todo_list table table-striped mt-3">
+        <thead>
+            <tr>
+                <th class="head-text text-center">Check</th>
+                <th class="head-text text-center">Task</th>
+                <th class="head-text text-center">編集</th>
+                <th class="head-text text-center">消去</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @todos.each do |todo| %>
+                <tr>
+                    <td class="text-center check-icon">
+                        <% if todo.status == "done" %>
+                        <%= link_to "", check_path(todo), method: :patch, class:"glyphicon glyphicon-ok-circle text-danger" %>
+                        <% else %>
+                        <%= link_to "", check_path(todo), method: :patch, class:"glyphicon glyphicon-ok-circle text-secondary" %>
+                        <% end %>
+                    </td>
+                    <td class="link-icon">
+                        <%= todo.todo_text %>
+                    </td>
+                    <td class="link-icon text-center">
+                        <%= link_to "", edit_todo_path(todo),class:"glyphicon glyphicon-edit" %>
+                    </td>
+                    <td class="link-icon text-center">
+                        <%= link_to "", todo_path(todo),class:"glyphicon glyphicon-trash",  method: :delete, data: { confirm: '消去しますか？' } %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

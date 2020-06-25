@@ -5,7 +5,7 @@
 </div>
 
 <div class="row">
-<div class="calendar col-6">
+<div class="calendar col-7">
 <%= month_calendar events: @logs do |date, logs| %>
   <%= date.day %>
 
@@ -17,7 +17,7 @@
 <% end %>
 </div>
 
-<div class="col-6">
+<div class="col-5">
 <strong>-日記を書く-</strong>
 <%= form_for @log do |form| %>
 

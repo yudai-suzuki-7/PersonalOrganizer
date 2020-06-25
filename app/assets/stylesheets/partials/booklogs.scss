@@ -1,0 +1,30 @@
+// Place all the styles related to the booklogs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.addbutton {
+  height: 69px;
+  line-height: 69px;
+}
+
+
+.book-body {
+  .glyphicon {
+    font-size: 15px;
+    vertical-align: middle;
+  }
+}
+
+.glyphicon-plus-sign {
+  font-size: 30px;
+  padding-top: 30px;
+}
+
+.booklog {
+  textarea {
+    resize: none;
+    width:350px;
+    height:100px;
+  }
+}

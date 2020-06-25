@@ -10,20 +10,74 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require simple_calendar
- *require_tree .
- *require_self
  *= require fullcalendar
+ *= require simple_calendar
+ *require_self
+ *require_tree .
  */
 
 @import "bootstrap";
+@import "partials/*";
 
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+$color-line: #888;
+$color-list: #ddd;
+$color-hover1: #fff;
+$color-hover2: #000;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.sidebar{
-  margin: 20px;
+#main {
+    margin-bottom: 100px;
+}
+
+.logo {
+    height: 65px;
+    width: 210px;
+}
+
+.sidebar {
+    padding: 5px 10px;
+
+}
+
+.item-title {
+    font-size: 1.5rem;
+    padding: 0 8px 8px;
+    border-bottom: 2px $color-line solid;
+    font-weight: normal;
+}
+
+.item-list {
+    list-style: none;
+
+    li {
+        border-bottom: 1px #color-list solid;
+    }
+
+    a:hover {
+        color: $color-hover1;
+        background-color: $color-hover2;
+    }
+}
+
+header {
+    border-top: 2px $color-line solid;
+    border-bottom: 2px $color-line solid;
+    maxwidth: 1100px;
+    margin: 0 auto;
+    padding: 0 4%;
+    .btn-link{
+        padding: 0 20px;
+        font-size: 20px;
+    }
+    .user-name{
+      padding-right: 30px;
+    }
+    .navbar-brand {
+      font-size:30px;
+    }
 }

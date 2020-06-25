@@ -1,15 +1,20 @@
+<div class="row book-header">
 <h1>BookLog!</h1>
+<div class="col-1 add-button">
+<%= link_to "", books_path,class:"glyphicon glyphicon-plus-sign" %>
+</div>
+</div>
 
-<%= link_to "本を追加する", books_path %>
-
-<div class="row">
+<div class="row book-body text-justify mx-auto mt-2">
   <% @booklogs.each do |f| %>
-    <div class='col-4'>
-      <img class="book-img img-thumbnail" src="<%= f.book_img_url %>" alt="本画像" alt="本画像", width="200" height="300"></tr><br>
-        題名:<%= f.book_title %><br>
-        著者:<%= f.book_author %><br>
-        <%= link_to "詳細", booklog_path(f) %>
-        <%= link_to "消去", booklog_path(f), method: :delete, data: { confirm: '消去しますか？' } %>
+    <div class="col-md-4 col-lg-3 book-index text-center">
+      <img class="book-img img-thumbnail" src="<%= f.book_img_url %>" alt="本画像", width="200" height="300"><br>
+        <p class="glyphicon glyphicon-book mt-1"><%= f.book_title %></p><br>
+         <p class="glyphicon glyphicon-pencil"><%= f.book_author %></p><br>
+        <div class="book-link">
+          <p><%= link_to "", booklog_path(f),class:"glyphicon glyphicon-search" %> |
+          <%= link_to "", booklog_path(f),class:"glyphicon glyphicon-trash", method: :delete, data: { confirm: '消去しますか？' } %></p>
+        </div>
     </div>
   <% end %>
 </div>

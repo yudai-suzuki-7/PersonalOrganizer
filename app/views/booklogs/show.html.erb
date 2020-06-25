@@ -1,19 +1,29 @@
 <div class="row">
-    <div class="col-5"><img cclass="book-img img-thumbnail" src="<%= @booklog.book_img_url %>" alt="本画像", width="200" height="300"></div>
-    <div class="col-7">
-        <p>
-           題名： <%= @booklog.book_title %>
-        </p>
-        <p>
-           著者： <%= @booklog.book_author %>
-        </p>
-        <p>-感想-</p>
-        <p>
+    <h1>BookLog!</h1>
+</div>
+
+<div class="row">
+    <div class="col-lg-4 text-center">
+        <img class="book-img img-thumbnail" src="<%= @booklog.book_img_url %>" alt="本画像", width="200" height="300">
+    </div>
+    <div class="col-lg-7">
+        <h3 class="book_title glyphicon glyphicon-book">
+            <%= @booklog.book_title %>
+        </h3><br>
+        <h3 class="book_author glyphicon glyphicon-pencil">
+          <%= @booklog.book_author %>
+        </h3><br>
+        <p class="content mt-4">
+          <h3>-感想-</h3>
           <%= @booklog.book_impression %>
         </p>
+        <div class="mx-auto text-justify">
         <p>
-            <%= link_to "戻る", booklogs_path %>|
-            <%= link_to "編集", edit_booklog_path(@booklog) %>
+            <%= link_to booklogs_path do %>
+            <i class="fas fa-undo-alt"></i>
+            <% end %>|
+            <%= link_to "", edit_booklog_path(@booklog),class:"glyphicon glyphicon-edit" %>
         </p>
+        </div>
     </div>
 </div>

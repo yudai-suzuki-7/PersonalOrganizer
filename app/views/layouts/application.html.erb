@@ -1,41 +1,43 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>LifeOrganizer</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <script src="https://kit.fontawesome.com/3274ef314a.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
     <div class="container-fluid">
-    <header>
-      <div class="row">
-      <%= render '/layouts/navbar' %>
-    </div>
-    </header>
-    <div class="container-fulid">
-      <div class="row">
-
-        <% if user_signed_in? %>
-          <div class="sidebar col-lg-2">
-            <%= render '/layouts/diary_sidebar' %>
+        <header>
+            <div class="row">
+                <%= render '/layouts/navbar'%>
+            </div>
+        </header>
+        <div class="container-fulid">
+          <div class="row">
+            <% if user_signed_in? %>
+              <div class="col-lg-2 center-block">
+                  <%= render '/layouts/diary_sidebar' %>
+              </div>
+              <div class="col-lg-10">
+                <%= yield %>
+              </div>
+            <% else %>
+              <div class="col-lg-12" id="main">
+                <%= yield %>
+              </div>
+            <% end %>
           </div>
-          <div class="col-lg-9">
-            <%= yield %>
-          </div>
-        <% else %>
-          <div class="col-lg-12">
-            <%= yield %>
-          </div>
-        <% end %>
-
+        </div>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
       </div>
-    </div>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  </div>
   </body>
+
 </html>

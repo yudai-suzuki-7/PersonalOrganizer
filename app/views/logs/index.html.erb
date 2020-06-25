@@ -1,48 +1,46 @@
 <div class="row">
-<p id="notice"><%= notice %></p>
-<h1>Log</h1>
+  <h1>Diary!</h1>
+  <div class="col-1 add-button">
+    <%= link_to "", new_log_path,class:"glyphicon glyphicon-plus-sign" %>
+  </div>
 </div>
 
 <div class="row">
-<div class="calendar col-6">
-<%= month_calendar events: @logs do |date, logs| %>
-  <%= date.day %>
+  <div class="calendar col-7">
+    <%= month_calendar events: @logs do |date, logs| %>
+      <%= date.day %>
 
-  <% logs.each do |log| %>
-    <div>
-      <%= link_to log.title, log %>
-    </div>
-  <% end %>
-<% end %>
-</div>
-
-
-<div class="col-6">
-<table>
-  <p>最近の日記</p>
-  <thead>
-    <tr>
-      <th>タイトル</th>
-      <th>時間</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @logs.each do |log| %>
-      <tr>
-        <td><%= log.title %></td>
-        <td><%= log.start_time.strftime("%Y-%m-%d") %></td>
-        <td><%= link_to 'Show', log %></td>
-        <td><%= link_to 'Edit', edit_log_path(log.id) %></td>
-        <td><%= link_to 'Destroy',log_path(log.id), method: :delete, data: { confirm: '消去しますか？' } %></td>
-      </tr>
+      <% logs.each do |log| %>
+        <div>
+          <%= link_to log.title, log %>
+        </div>
+      <% end %>
     <% end %>
-  </tbody>
-</table>
+  </div>
 
-<br>
 
-<%= link_to '日記をかく', new_log_path %>
+<div class="col-5">
+  <table class="table table-striped">
+    <p>最近の日記</p>
+    <thead>
+      <tr>
+        <th>タイトル</th>
+        <th>日付</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @logs.each do |log| %>
+        <tr>
+          <td><%= log.title %></td>
+          <td><%= log.start_time.strftime("%Y-%m-%d") %></td>
+          <td><%= link_to '', log ,class:"glyphicon glyphicon-search"%></td>
+          <td><%= link_to '', edit_log_path(log.id),class:"glyphicon glyphicon-edit" %></td>
+          <td><%= link_to '',log_path(log.id),class:"glyphicon glyphicon-trash", method: :delete, data: { confirm: '消去しますか？' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table><br>
 </div>
 </div>

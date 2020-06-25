@@ -48,7 +48,7 @@ class BooklogsController < ApplicationController
   def destroy
     @booklog = Booklog.find(params[:id])
     @booklog.destroy
-    redirect_to booklogs_path, notice:"削除しました"
+    redirect_to booklogs_path
   end
 
   private

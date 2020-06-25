@@ -36,13 +36,13 @@ class WishesController < ApplicationController
 	def destroy
     wish = Wish.find(params[:id])
     wish.destroy
-    redirect_to action: :index, notice:"削除しました"
+    redirect_to action: :index
 	end
 
 	def update
     @wish = Wish.find(params[:id])
     if @wish.update(wish_params)
-      redirect_to action: :index, notice:"編集しました"
+      redirect_to action: :index
     else
       render action: :edit
     end

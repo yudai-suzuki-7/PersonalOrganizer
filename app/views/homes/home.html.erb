@@ -1,3 +1,39 @@
-<h1>home</h1>
+<div  id="home" class="bg-img row">
+<div class="home-content col-12">
+  <h2 class="page-title">Parsonal Organizer</h2>
+  <p>システム手帳をあなたのデバイスに</p>
+</div>
+</div>
 
-<%= link_to "手帳を作成する☆", new_user_registration_path %>
+<div class="row">
+  <div class="col-lg-4 px-5 mt-5">
+    <h3>-スケジュール帳-</h3>
+      <p>スケジュールを管理することで仕事の無駄がなくなり、効率的に仕事を進められます。 細かく時間を把握することで、仕事を効率化し、充実したプライベートの時間を確保するためにも役立ちます。
+      計画的に物事を進めていきましょう。</p>
+    </div>
+
+  <div class="col-lg-4 px-5 mt-5">
+    <h3>-日記-</h3>
+      <p>
+        新しい発見・学び、様々なシーンでの感情や思いを記して、1日の振り返りをしましょう。
+        日記を書くことによりストレス発散になり、気持ちや感情を整理することができます。
+        また読み返すことで、自分の考え方や行動パターンなど新たな気づきを得ることができるかもしれません。
+      </p>
+  </div>
+
+  <div class="col-lg-4 px-5 mt-5">
+    <h3>-夢リスト-</h3>
+    <p>
+      夢や目標は何ですか？
+      実際に文字に起こすことで自分が望んでいることを改めて認識するのに役立ちます。
+      大きな夢や小さな夢をたくさん記録していきましょう。
+      人生は有限です。夢や目標に向かって充実したものにしていきましょう。
+    </p>
+  </div>
+</div>
+
+<div class="row text-center mt-5">
+  <div class=" mx-auto signup-button">
+    <%= link_to "手帳を作成する", new_user_registration_path, class:"btn btn-secondary", style:"color:#fff;" %>
+  </div>
+</div>

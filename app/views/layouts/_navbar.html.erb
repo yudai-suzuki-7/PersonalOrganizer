@@ -1,30 +1,28 @@
 <div class="col-12 p-0">
-<nav class="navbar navbar-expand-md navbar-dark" style="background-color:#000;">
-    <%= link_to 'LifeConcier', root_path, class:"navbar-brand" %>
-
-    <div class="collapse navbar-collapse" id="navbar_a">
-
-      <ul class="navbar-nav ml-auto">
+  <nav class="navbar navbar-expand-sm m-0">
+    <h1><a href="/"><%= image_tag 'brandlogo.jpeg', class:"logo"%></a></h1>
+    <div class="collapse navbar-collapse" id="navbar">
+      <ul class="navbar-nav navbar-right">
         <% if user_signed_in? %>
-        <li class="user-name"><%= current_user.name %>'s手帳</li>
+        <li class="user-name"><%= current_user.name %>'s Personal organizer</li>
         <li class="nav-item">
-          <%= link_to "マイページ", events_path,  class: "btn text-light", style: "background-color: #000;" %>
+          <%= link_to "Setting", edit_users_path, class:"btn btn-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "ログアウト", destroy_user_session_path,method: :delete, class: "btn text-light", style: "background-color: #000;" %>
+          <%= link_to "Signout",destroy_user_session_path, method: :delete, class:"btn btn-link" %>
         </li>
         <% else %>
         <li class="nav-item mr-4">
-          <%= link_to "home", root_path,class: "btn btn-nav text-light", style: "background-color: #000;" %>
+          <%= link_to "home", root_path, class:"btn btn-link" %>
         </li>
+        <!--<li class="nav-item mr-4">
+          <%= link_to "about", home_about_path, class:"btn btn-link" %>
+        </li>-->
         <li class="nav-item mr-4">
-          <%= link_to "about", home_about_path,class: "btn btn-nav text-light", style: "background-color: #000;" %>
-        </li>
-        <li class="nav-item mr-4">
-          <%= link_to "Sign_UP", new_user_registration_path,class: "btn btn-nav text-light", style: "background-color: #000;"%>
+          <%= link_to "Signup", new_user_registration_path, class:"btn btn-link" %>
         </li>
         <li class="nav-item mr-3">
-          <%= link_to "ログイン", new_user_session_path,class: "btn btn-nav text-light", style: "background-color: #000;"%>
+          <%= link_to "Signin", new_user_session_path, class:"btn btn-link" %>
         </li>
         <% end %>
       </ul>

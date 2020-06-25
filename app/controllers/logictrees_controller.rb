@@ -11,19 +11,17 @@ class LogictreesController < ApplicationController
     if @logictree.save
       redirect_to wish_logictrees_path(params[:wish_id])
     else
-      render action: :index, noice:"保存失敗・・・"
+      render action: :show, noice:"保存失敗・・・"
     end
   end
 
-  def index
-  end
-
   def update
-    @logictree = Logictree.find(params[:wish_id])
+    wish = Wish.find(params[:wish_id])
+    @logictree = Logictree.where(wish_id: wish.id)
     if @logictree.update(logictree_params)
-      redirect_to wish_logictrees_path(@logictree.wish_id), noice:"更新しました"
+      redirect_to wish_logictrees_path(wish)
     else
-      render action: :index, noice:"更新失敗・・・"
+      render action: :show, noice:"保存失敗・・・"
     end
   end
 

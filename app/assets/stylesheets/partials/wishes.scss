@@ -1,0 +1,46 @@
+// Place all the styles related to the wishes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$font: #333;
+
+.wish-list {
+    table {
+        counter-reset: rowCount;
+    }
+
+    tbody tr {
+        counter-increment: rowCount;
+    }
+
+    tbody tr td:first-child::before {
+        content: counter(rowCount);
+    }
+
+    th {
+        text-align: center;
+    }
+
+    td {
+        font-size: 15px;
+        font-color: $font;
+    }
+
+    .link-icon {
+        text-align: center;
+    }
+
+}
+
+.logictree-table {
+    th td {
+    text-aligin: center;
+    }
+
+    textarea {
+        resize: none;
+        width: 280px;
+        height: 100px;
+        margin: 0 auto;
+    }
+}

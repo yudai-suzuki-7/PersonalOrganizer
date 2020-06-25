@@ -1,23 +1,32 @@
-<div class="diary_selected" , style="border-style: dotted;">
-    <h1>Schedule</h1>
-    <%= link_to "スケジュール帳", events_path %><br>
-    <% if current_user.todo_status == "use1" %>
-    <%= link_to "ToDoリスト", todos_path %>
-    <% else %>
-    <% end %>
-
-    <h1>Log</h1>
-    <%= link_to "日記", logs_path %><br>
-    <% if current_user.booklog_status == "use2" %>
-    <%= link_to "読書日記", booklogs_path %>
-    <% else %>
-    <% end %>
-
-
-    <h1>Wish</h1>
-    <%= link_to "やりたいことリスト", wishes_path %><br><br>
-
-    <p><%= link_to "設定", edit_users_path %></p>
-
-
+<div class="row sidebar">
+    <div class="col-sm-4 col-lg-12 item-list">
+        <h3 class="item-title">Schedule</h3>
+        <li>
+            <%= link_to "スケジュール", events_path %>
+        </li>
+        <% if current_user.todo_status == "use1" %>
+        <li>
+            <%= link_to "ToDoリスト", todos_path %>
+        </li>
+        <% else %>
+        <% end %>
+    </div>
+    <div class="col-sm-4 col-lg-12 item-list">
+        <h3 class="item-title">Log</h3>
+        <li>
+            <%= link_to "日記", logs_path %>
+        </li>
+        <% if current_user.booklog_status == "use2" %>
+        <li>
+            <%= link_to "読書日記", booklogs_path %>
+        </li>
+        <% else %>
+        <% end %>
+    </div>
+    <div class="col-sm-4 col-lg-12 item-list">
+        <h3 class="item-title">Wish</h3>
+        <li>
+            <%= link_to "wishリスト", wishes_path %>
+        </li>
+    </div>
 </div>

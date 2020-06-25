@@ -1,0 +1,20 @@
+// Place all the styles related to the logictrees controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.logictree-table {
+    th td {
+        text-aligin: center;
+    }
+
+    .logic1 logic3 logic21 {
+        background-color: #666;
+    }
+
+    textarea {
+        resize: none;
+        width: 280px;
+        height: 100px;
+        margin: 0 auto;
+    }
+}

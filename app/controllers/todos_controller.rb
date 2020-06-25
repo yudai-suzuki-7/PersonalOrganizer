@@ -25,13 +25,13 @@ class TodosController < ApplicationController
   def destroy
     todo = Todo.find(params[:id])
     todo.destroy
-    redirect_to action: :index, notice:"削除しました"
+    redirect_to action: :index
   end
 
   def update
     @todo = Todo.find(params[:id])
     if @todo.update(todo_params)
-      redirect_to action: :index, notice:"編集しました"
+      redirect_to action: :index
     else
       render action: :edit
     end

@@ -1,39 +1,50 @@
-<h1>Wish List</h1>
-
-<div class="add-form">
-  <%= form_for(@wish,url: wishes_path) do |form| %>
-
-  <div class="wish_text">
-    <%= form.label :wish_text %>
-    <%= form.text_field :wish_text %>
-  </div>
-
-  <div class="submit">
-    <%= form.submit %>
-  </div>
-
-  <% end %>
-
+<div class="row">
+    <h1 class="ml-3">Wish List</h1>
 </div>
-
-
-<table class="wish_list">
-  <tr>
-    <th>やりたいこと</th>
-    <th>分析</th>
-    <th colspan="2"></th>
-  </tr>
-
-  <% @wishes.each do |wish| %>
-    <tr>
-      <td><%= wish.wish_text %></td>
-      <% if wish.logictree.nil? %>
-         <td><%= link_to "logical tree",  wish_logictrees_path %></td>
-      <% else %>
-        <td><%= link_to "logical tree", wish_path(wish) %></td>
-      <% end %>
-      <td><%= link_to "edit", edit_wish_path(wish) %></td>
-      <td><%= link_to "delete", wish_path(wish), method: :delete, data: { confirm: '消去しますか？' } %></td>
-    </tr>
-  <% end %>
-</table>
+<div class="row wish-list">
+    <div class="wish-add-form ml-3">
+        <%= form_for(@wish,url: wishes_path) do |form| %>
+        <span class="wish_text">
+            <%= form.text_field :wish_text, style:"height:30px"; %>
+        </span>
+        <span class="submit">
+            <%= form.submit('追加',class: "btn btn-secondary btn-sm") %>
+        </span>
+        <% end %>
+    </div>
+    <table class="table table-striped mt-3 mx-3">
+        <thead>
+            <tr>
+                <th class="wish-texts">やりたいこと</th>
+                <th>LogicTree</th>
+                <th>編集</th>
+                <th>消去</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @wishes.each do |wish| %>
+            <tr>
+                <td class="wish-text">
+                    .
+                    <%= wish.wish_text %>
+                </td>
+                <% if wish.logictree.nil? %>
+                <td>
+                    <%= link_to "logical tree",  wish_logictrees_path, class:"text-center" %>
+                </td>
+                <% else %>
+                <td class="link-icon">
+                    <%= link_to "", wish_path(wish),class:"glyphicon glyphicon-tree-deciduous" %>
+                </td>
+                <% end %>
+                <td class="link-icon">
+                    <%= link_to "", edit_wish_path(wish),class:"glyphicon glyphicon-edit text-center" %>
+                </td>
+                <td class="link-icon">
+                    <%= link_to "", wish_path(wish),class:"glyphicon glyphicon-trash text-center", method: :delete, data: { confirm: '消去しますか？' } %>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

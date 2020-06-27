@@ -1,4 +1,6 @@
 class WishesController < ApplicationController
+  before_action :authenticate_user!
+
 	def index
 		@wish = Wish.new
 		@wishes = Wish.where(user_id: current_user)

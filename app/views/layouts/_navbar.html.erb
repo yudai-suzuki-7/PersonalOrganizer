@@ -1,31 +1,35 @@
 <div class="col-12 p-0">
-  <nav class="navbar navbar-expand-sm m-0">
-    <h1><a href="/"><%= image_tag 'brandlogo.jpeg', class:"logo"%></a></h1>
-    <div class="collapse navbar-collapse" id="navbar">
-      <ul class="navbar-nav navbar-right">
-        <% if user_signed_in? %>
-        <li class="user-name"><p><%= current_user.name %>'s Diary</p></li>
-        <li class="nav-item">
-          <%= link_to "Setting", edit_users_path, class:"btn btn-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Signout",destroy_user_session_path, method: :delete, class:"btn btn-link" %>
-        </li>
-        <% else %>
-        <li class="nav-item mr-4">
-          <%= link_to "Home", root_path, class:"btn btn-link" %>
-        </li>
-        <!--<li class="nav-item mr-4">
+    <nav class="navbar navbar-expand-sm m-0">
+        <h1><a href="/">
+                <%= image_tag 'brandlogo.png', class:"logo"%></a></h1>
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav navbar-right">
+                <% if user_signed_in? %>
+                <li class="user-name">
+                    <p>
+                        <%= current_user.name %>'s Diary</p>
+                </li>
+                <li class="nav-item">
+                    <%= link_to "Setting", edit_users_path, class:"btn btn-link" %>
+                </li>
+                <li class="nav-item">
+                    <%= link_to "Signout",destroy_user_session_path, method: :delete, class:"btn btn-link" %>
+                </li>
+                <% else %>
+                <li class="nav-item mr-4">
+                    <%= link_to "Home", root_path, class:"btn btn-link" %>
+                </li>
+                <!--<li class="nav-item mr-4">
           <%= link_to "about", home_about_path, class:"btn btn-link" %>
         </li>-->
-        <li class="nav-item mr-4">
-          <%= link_to "Signup", new_user_registration_path, class:"btn btn-link" %>
-        </li>
-        <li class="nav-item mr-3">
-          <%= link_to "Signin", new_user_session_path, class:"btn btn-link" %>
-        </li>
-        <% end %>
-      </ul>
-    </div>
-  </nav>
+                <li class="nav-item mr-4">
+                    <%= link_to "Signup", new_user_registration_path, class:"btn btn-link" %>
+                </li>
+                <li class="nav-item mr-3">
+                    <%= link_to "Signin", new_user_session_path, class:"btn btn-link" %>
+                </li>
+                <% end %>
+            </ul>
+        </div>
+    </nav>
 </div>

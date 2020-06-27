@@ -1,14 +1,17 @@
 class BooklogsController < ApplicationController
-    def search
-     @books = []
+  before_action :authenticate_user!
+  before_action :check_booklog
+
+  def search
+    @books = []
 
     @title = params[:title]
     if @title.present?
-      results = RakutenWebService::Books::Book.search({
-        title: @title,
-        booksGenreId: '001004',
-        hits: 21,
-      })
+        results = RakutenWebService::Books::Book.search({
+          title: @title,
+          booksGenreId: '001004',
+          hits: 21,
+        })
 
       results.each do |result|
         book = Book.new(read(result))
@@ -71,4 +74,10 @@ class BooklogsController < ApplicationController
     }
   end
 
+  def check_booklog
+    if current_user.booklog_status == "notuse2"
+      redirect_to events_path
+    else
+    end
+  end
 end

@@ -1,4 +1,6 @@
 class LogictreesController < ApplicationController
+  before_action :authenticate_user!
+
   def show
     @wish = Wish.find(params[:wish_id])
     @logictree = Logictree.find_by(wish_id:@wish.id)

@@ -1,4 +1,6 @@
 class LogsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @logs = Log.where(user_id: current_user)
   end

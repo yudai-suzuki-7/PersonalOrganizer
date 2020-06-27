@@ -10,6 +10,5 @@ class User < ApplicationRecord
 
   enum todo_status: { notuse1: 0, use1: 1 }
   enum booklog_status: { notuse2: 0, use2: 1 }
-  enum logictree_status: { notuse3: 0, use3: 1 }
 
 end

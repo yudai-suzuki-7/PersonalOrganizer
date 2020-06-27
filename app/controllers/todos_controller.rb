@@ -1,4 +1,7 @@
 class TodosController < ApplicationController
+  before_action :authenticate_user!
+  before_action :check_todo
+
   def index
     @todo = Todo.new
     @todos = Todo.where(user_id: current_user)
@@ -51,6 +54,13 @@ class TodosController < ApplicationController
   private
   def todo_params
     params.require(:todo).permit(:user_id, :todo_text, :todo_status)
+  end
+
+  def check_todo
+    if current_user.todo_status == "notuse1"
+      redirect_to events_path
+    else
+    end
   end
 
 end

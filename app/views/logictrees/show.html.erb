@@ -1,16 +1,23 @@
-<div class="row">
-    <h1 class="ml-3">LogicTree</h1>
+<div class="row mx-3">
+    <h1>LogicTree
+        <%= link_to "", wishes_path,class:"btn-link glyphicon glyphicon-repeat" %>
+    </h1>
 </div>
-
 <%= form_for [@wish,@logictree],url:wish_logictrees_path(@wish), method: :PATCH do |form| %>
-<div class="row">
-    <table class="logictree-table table table-bordered mx-3">
+<div class="row mx-3 ">
+    <table class="logictree-table table table-bordered">
         <tr>
-            <td class="wish align-items-center" rowspan="9">
-                <strong class="wish-text">
-                    <%= @wish.wish_text %></strong>
+            <th class="text-center">やりたいこと</th>
+            <th class="text-center">ロジック1</th>
+            <th class="text-center">ロジック2</th>
+        </tr>
+        <tr>
+            <td class="wish align-middle" rowspan="9">
+                <div class="wish-text">
+                    <%= @wish.wish_text %>
+                </div>
             </td>
-            <td class="wish" rowspan="3">
+            <td class="logic1" rowspan="3">
                 <%= form.text_area :logic1 %>
             </td>
             <td class="logic11">
@@ -18,12 +25,12 @@
             </td>
         </tr>
         <tr>
-            <td class="logic12">
+            <td class="logic11">
                 <%= form.text_field :logic12 %>
             </td>
         </tr>
         <tr>
-            <td class="logic13">
+            <td class="logic11">
                 <%= form.text_field :logic13 %>
             </td>
         </tr>
@@ -36,12 +43,12 @@
             </td>
         </tr>
         <tr>
-            <td class="logic22">
+            <td class="logic21">
                 <%= form.text_field :logic22 %>
             </td>
         </tr>
         <tr>
-            <td class="logic23">
+            <td class="logic21">
                 <%= form.text_field :logic23 %>
             </td>
         </tr>
@@ -54,19 +61,20 @@
             </td>
         </tr>
         <tr>
-            <td class="logic32">
+            <td class="logic31">
                 <%= form.text_field :logic32 %>
             </td>
         </tr>
         <tr>
-            <td class="logic33">
+            <td class="logic31">
                 <%= form.text_field :logic33 %>
             </td>
         </tr>
     </table>
 </div>
-<div class="submit">
-    <%= form.submit %>
+<div class="row mx-3">
+    <div class="submit">
+        <%= form.submit('保存',class:"btn btn-secondary btn-sm") %>
+    </div>
 </div>
 <% end %>
-<%= link_to "戻る",wishes_path %>

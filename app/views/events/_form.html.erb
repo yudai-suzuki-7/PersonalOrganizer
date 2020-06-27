@@ -1,37 +1,38 @@
 <%= form_with(model: event, local: true) do |form| %>
-  <% if event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
-
-      <ul>
-      <% event.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<% if @event.errors.any? %>
+<div class="error-messages">
+    <% @event.errors.full_messages.each do |message| %>
+    <p class="text-danger">
+        <%= message %>
+    </p>
+    <% end %>
+</div>
+<% end %>
+<div class="field">
+    <div>
+        <%= form.label :title,"タイトル" %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_field :body %>
-  </div>
-
-  <div class="field">
-    <%= form.label :start_date %>
-    <%= form.datetime_select :start_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :end_date %>
-    <%= form.datetime_select :end_date %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div>
+        <%= form.text_field :title %>
+    </div>
+</div>
+<div class="field">
+    <div>
+        <%= form.label :body, "内容" %>
+    </div>
+    <div>
+        <%= form.text_area :body %>
+    </div>
+</div>
+<div class="field">
+    <%= form.label :start_date,"開始" %>
+    <%= form.datetime_select :start_date, use_month_numbers: true %>
+</div>
+<div class="field">
+    <%= form.label :end_date,"終了" %>
+    <%= form.datetime_select :end_date, use_month_numbers: true%>
+</div>
+<div class="actions">
+    <%= form.submit('保存',class:"btn btn-secondary btn-sm") %>
+</div>
 <% end %>

@@ -2,11 +2,11 @@
     <div class="col-sm-4 col-lg-12 item-list">
         <h3 class="item-title">Schedule</h3>
         <li>
-            <%= link_to "スケジュール", events_path %>
+            <%= link_to "スケジュール", events_path, class:"btn-link" %>
         </li>
         <% if current_user.todo_status == "use1" %>
         <li>
-            <%= link_to "ToDoリスト", todos_path %>
+            <%= link_to "ToDoリスト", todos_path, class:"btn-link" %>
         </li>
         <% else %>
         <% end %>
@@ -14,11 +14,11 @@
     <div class="col-sm-4 col-lg-12 item-list">
         <h3 class="item-title">Log</h3>
         <li>
-            <%= link_to "日記", logs_path %>
+            <%= link_to "日記", logs_path, class:"btn-link" %>
         </li>
         <% if current_user.booklog_status == "use2" %>
         <li>
-            <%= link_to "読書日記", booklogs_path %>
+            <%= link_to "読書日記", booklogs_path, class:"btn-link"%>
         </li>
         <% else %>
         <% end %>
@@ -26,7 +26,7 @@
     <div class="col-sm-4 col-lg-12 item-list">
         <h3 class="item-title">Wish</h3>
         <li>
-            <%= link_to "wishリスト", wishes_path %>
+            <%= link_to "wishリスト", wishes_path, class:"btn-link" %>
         </li>
     </div>
 </div>

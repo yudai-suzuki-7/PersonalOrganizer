@@ -5,18 +5,6 @@
 $font: #333;
 
 .todo-list {
-    table {
-        counter-reset: rowCount;
-    }
-
-    tbody tr {
-        counter-increment: rowCount;
-    }
-
-    tbody tr td:first-child::before {
-        content: counter(rowCount);
-    }
-
     th {
         text-align: center;
     }

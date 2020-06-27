@@ -8,9 +8,9 @@ class TodosController < ApplicationController
     @todo = Todo.new(todo_params)
     @todo.user_id = current_user.id
     if @todo.save
-      redirect_to todos_path
+      redirect_to action: :index
     else
-      render action: :index
+      redirect_to action: :index
     end
   end
 
@@ -39,18 +39,18 @@ class TodosController < ApplicationController
 
   def check
     todo = Todo.find(params[:id])
-    if todo.status == "undone"
-      todo.status = "done"
+    if todo.todo_status == "undone"
+      todo.todo_status = "done"
     else
-      todo.status = "undone"
+      todo.todo_status = "undone"
     end
-    todo.update(status: todo.status)
+    todo.update(todo_status: todo.todo_status)
     redirect_to todos_path
   end
 
   private
   def todo_params
-    params.require(:todo).permit(:user_id, :todo_text, :status)
+    params.require(:todo).permit(:user_id, :todo_text, :todo_status)
   end
 
 end

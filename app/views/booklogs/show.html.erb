@@ -1,29 +1,29 @@
-<div class="row">
-    <h1>BookLog!</h1>
+<div class="row mx-3">
+    <h1>BookLog
+        <%= link_to "", booklogs_path,class:"btn-link glyphicon glyphicon-repeat" %>
+    </h1>
 </div>
-
-<div class="row">
-    <div class="col-lg-4 text-center">
-        <img class="book-img img-thumbnail" src="<%= @booklog.book_img_url %>" alt="本画像", width="200" height="300">
+<div class="row mx-3 mt-3">
+    <div class="col-5 text-center booklog-list">
+        <img class="book-img img-thumbnail" src="<%= @booklog.book_img_url %>" alt="本画像" , width="200" height="300">
     </div>
-    <div class="col-lg-7">
+    <div class="col-7">
         <h3 class="book_title glyphicon glyphicon-book">
             <%= @booklog.book_title %>
         </h3><br>
         <h3 class="book_author glyphicon glyphicon-pencil">
-          <%= @booklog.book_author %>
+            <%= @booklog.book_author %>
         </h3><br>
-        <p class="content mt-4">
-          <h3>-感想-</h3>
-          <%= @booklog.book_impression %>
-        </p>
-        <div class="mx-auto text-justify">
-        <p>
-            <%= link_to booklogs_path do %>
-            <i class="fas fa-undo-alt"></i>
-            <% end %>|
-            <%= link_to "", edit_booklog_path(@booklog),class:"glyphicon glyphicon-edit" %>
-        </p>
+        <div class="content mt-3 ">
+            <h3>-感想-</h3>
+            <p class="book-link">
+                <%= @booklog.book_impression %>
+            </p>
+        </div>
+        <div class="mx-auto text-justify mt-3">
+            <p class="book-link">
+                <%= link_to "編集", edit_booklog_path(@booklog),class:"glyphicon glyphicon-edit btn-link" %>
+            </p>
         </div>
     </div>
 </div>

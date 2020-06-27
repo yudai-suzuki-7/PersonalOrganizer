@@ -4,7 +4,7 @@
     <div class="collapse navbar-collapse" id="navbar">
       <ul class="navbar-nav navbar-right">
         <% if user_signed_in? %>
-        <li class="user-name"><%= current_user.name %>'s Personal organizer</li>
+        <li class="user-name"><p><%= current_user.name %>'s Diary</p></li>
         <li class="nav-item">
           <%= link_to "Setting", edit_users_path, class:"btn btn-link" %>
         </li>
@@ -13,7 +13,7 @@
         </li>
         <% else %>
         <li class="nav-item mr-4">
-          <%= link_to "home", root_path, class:"btn btn-link" %>
+          <%= link_to "Home", root_path, class:"btn btn-link" %>
         </li>
         <!--<li class="nav-item mr-4">
           <%= link_to "about", home_about_path, class:"btn btn-link" %>

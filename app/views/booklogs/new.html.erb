@@ -1,14 +1,14 @@
-<div class="row">
+<div class="row mx-3">
     <div class="col-12">
-      <h1>本を探す</h1>
+        <h1>本を探す</h1>
         <%= form_tag(books_path, method: :get) do %>
-        <%= text_field_tag :title, @title, placeholder:'書籍タイトル', size: 40 %>
+        <%= text_field_tag :title, @title, placeholder:'書籍タイトル' %>
         <%= submit_tag '本を検索'%>
         <% end %>
         <p>※記録する本を検索して選択してください。</p>
     </div><br>
 </div>
-<div class="row booklog">
+<div class="row booklog mx-3">
     <% if @books %>
     <% @books.each do |book| %>
     <div class="col-4 mb-2">

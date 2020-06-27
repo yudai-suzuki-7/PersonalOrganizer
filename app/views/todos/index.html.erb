@@ -1,11 +1,13 @@
-<div class="row mx-3">
-    <h1>ToDo List</h1>
+<div class="row mx-3" style="margin-top: 26px;">
+    <h1>ToDo List
+    </h1>
 </div>
 <div class="row mx-3">
+    <%= render 'layouts/error', error: @todo %>
     <div class="todo-add-form">
         <%= form_for(@todo,url: todos_path) do |form| %>
         <span class="todo-text">
-            <%= form.text_field :todo_text, style:"height:30px; width:200px;" %>
+            <%= form.text_field :todo_text, style:"height:30px; width:300px;" %>
         </span>
         <span class="submit">
             <%= form.submit('追加',class: "btn btn-secondary btn-sm") %>
@@ -25,20 +27,20 @@
             <% @todos.each do |todo| %>
                 <tr>
                     <td class="text-center check-icon">
-                        <% if todo.status == "done" %>
-                        <%= link_to "", check_path(todo), method: :patch, class:"glyphicon glyphicon-ok-circle text-danger" %>
+                        <% if todo.todo_status == "done" %>
+                        <%= link_to "", todo_check_path(todo), method: :patch, class:"btn-link glyphicon glyphicon-ok-circle text-danger" %>
                         <% else %>
-                        <%= link_to "", check_path(todo), method: :patch, class:"glyphicon glyphicon-ok-circle text-secondary" %>
+                        <%= link_to "", todo_check_path(todo), method: :patch, class:"btn-link glyphicon glyphicon-ok-circle text-secondary" %>
                         <% end %>
                     </td>
                     <td class="link-icon">
                         <%= todo.todo_text %>
                     </td>
                     <td class="link-icon text-center">
-                        <%= link_to "", edit_todo_path(todo),class:"glyphicon glyphicon-edit" %>
+                        <%= link_to "", edit_todo_path(todo),class:"btn-link glyphicon glyphicon-edit" %>
                     </td>
                     <td class="link-icon text-center">
-                        <%= link_to "", todo_path(todo),class:"glyphicon glyphicon-trash",  method: :delete, data: { confirm: '消去しますか？' } %>
+                        <%= link_to "", todo_path(todo),class:"btn-link glyphicon glyphicon-trash",  method: :delete, data: { confirm: '消去しますか？' } %>
                     </td>
                 </tr>
             <% end %>

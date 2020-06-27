@@ -1,30 +1,36 @@
-<div class="row">
-<h1>BookLog!</h1>
+<div class="row mx-3">
+    <h1>BookLog
+        <%= link_to "", booklogs_path,class:"btn-link glyphicon glyphicon-repeat" %>
+    </h1>
 </div>
-
-<div class="row">
-    <div class="col-12">
-      <h2>本を探す</h2>
+<div class="row mx-3">
+    <div class="col-12 px-0">
+        <h2>本を探す</h2>
         <%= form_tag(books_path, method: :get) do %>
-          <%= text_field_tag :title, @title, placeholder:'書籍タイトル', size: 40 %>
-          <%= submit_tag 'Search',class:"btn btn-dark" %>
+        <%= text_field_tag :title, @title, minlength: "2", placeholder:'書籍タイトル(2文字以上)',style:"height:34px; width:400px;" %>
+        <%= submit_tag 'Search',class:"btn btn-dark" %>
         <% end %>
         <p>※記録する本を検索して選択してください。</p>
     </div><br>
 </div>
-<div class="row">
-  <% if @books %>
+<div class="row mx-3">
+    <% if @books %>
     <% @books.each do |book| %>
-      <div class="col-md-4 col-lg-3 mb-2">
-        <img class="book-img img-thumbnail" src="<%= book.image_url %>" alt="本画像", width="200" height="300">
-        <p><%= book.title %></p>
-        <p><%= book.author %></p>
-        <%= form_tag(booklogs_path) do %>
-          <%= hidden_field_tag :isbn, book.isbn %>
-          <%= submit_tag 'save' %>
-        <% end %>
-      </div>
+    <div class="col-md-4 col-lg-3 mb-2 text-center">
+        <img class="book-img img-thumbnail" src="<%= book.image_url %>" alt="本画像" , width="200" height="300">
+        <p class="glyphicon glyphicon-book mt-1">
+            <%= book.title %>
+        </p><br>
+        <p class="glyphicon glyphicon-pencil">
+            <%= book.author %>
+        </p>
+        <div class="text-center">
+            <%= form_tag(booklogs_path) do %>
+            <%= hidden_field_tag :isbn, book.isbn %>
+            <%= submit_tag('保存',class:"btn btn-secondary btn-sm") %>
+            <% end %>
+        </div>
+    </div>
     <% end %>
-  <% end %>
+    <% end %>
 </div>
-

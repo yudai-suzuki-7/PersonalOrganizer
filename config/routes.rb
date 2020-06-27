@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :events
   resources :logs
   resources :todos
-  patch 'check/:id' => 'todos#check' ,as: "check"
+  patch 'todo_check/:id' => 'todos#check' ,as: "todo_check"
   resources :booklogs
   get 'books' => 'books#search'
 
@@ -19,5 +19,6 @@ Rails.application.routes.draw do
   resources :wishes do
     resource :logictrees
   end
+  patch 'wish_check/:id' => 'wishes#check' ,as: "wish_check"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -9,9 +9,7 @@ class WishesController < ApplicationController
     @logictree = Logictree.find_or_initialize_by(wish_id:@wish.id)
     if @logictree.persisted?
       render "logictrees/show"
-    else
     end
-
   end
 
   def edit
@@ -48,9 +46,20 @@ class WishesController < ApplicationController
     end
 	end
 
+  def check
+    wish = Wish.find(params[:id])
+    if wish.wish_status == "undone"
+      wish.wish_status = "done"
+    else
+      wish.wish_status = "undone"
+    end
+    wish.update(wish_status: wish.wish_status)
+    redirect_to wishes_path
+  end
+
 	private
   def wish_params
-    params.require(:wish).permit(:wish_text)
+    params.require(:wish).permit(:wish_text, :wish_status)
   end
 
 end

@@ -1,49 +1,66 @@
-
-<div class="row">
-<p id="notice"><%= notice %></p>
-<h1>Log</h1>
+<div class="row mx-3">
+    <h1>Diary
+        <%= link_to "", logs_path,class:"btn-link glyphicon glyphicon-repeat" %>
+    </h1>
 </div>
-
-<div class="row">
-<div class="calendar col-7">
-<%= month_calendar events: @logs do |date, logs| %>
-  <%= date.day %>
-
-  <% logs.each do |log| %>
-    <div>
-      <%= link_to log.title, log %>
+<div class="row mx-3">
+    <div class="log-list col-lg-5 order-lg-2 log-new-form">
+        <% if @log.errors.any? %>
+        <div>
+            <% @log.errors.full_messages.each do |message| %>
+            <p class="text-danger">
+                <%= message %>
+            </p>
+            <% end %>
+        </div>
+        <% end %>
+        <h4>-日記を書く-</h4>
+        <%= form_for @log do |form| %>
+        <div class="time">
+            <strong class="title">
+                <%= form.label :start_time,"日付" %>
+            </strong>
+            <div>
+                <%= form.date_select :start_time, use_month_numbers:true, date_separator:" / " %>
+            </div>
+        </div>
+        <div class="title">
+            <strong class="title">
+                <%= form.label :title,"タイトル"%>
+            </strong>
+            <div>
+                <%= form.text_field :title %>
+            </div>
+        </div>
+        <div class="content">
+            <strong class="title">
+                <%= form.label :content,"内容" %>
+            </strong>
+            <div>
+                <%= form.text_area :content %>
+            </div>
+        </div>
+        <div class="image">
+            <strong class="title">
+                <%= form.label :log_img, "画像" %>
+            </strong>
+            <div>
+                <%= form.attachment_field :log_img %>
+            </div>
+        </div>
+        <div class="submit">
+            <%= form.submit("保存",class:"btn btn-secondary btn-sm mt-3")%>
+        </div>
+        <% end %>
     </div>
-  <% end %>
-<% end %>
-</div>
-
-<div class="col-5">
-<strong>-日記を書く-</strong>
-<%= form_for @log do |form| %>
-
-  <div class="title">
-    <%= form.label :title, "タイトル" %>
-    <%= form.text_field :title %>
-  </div>
-
-    <div class="time">
-    <%= form.label :start_time, "日付" %>
-    <%= form.date_select :start_time, use_month_numbers:true, date_separator:" / " %>
-  </div>
-
-  <div class="content">
-    <%= form.label :content, "内容" %>
-    <%= form.text_area :content %>
-  </div>
-
-  <div class="image">
-    <%= form.label :log_img, "画像" %>
-    <%= form.attachment_field :log_img %>
-
-  <div class="submit">
-    <%= form.submit "保存" %>
-  </div>
-
-<% end %>
-</div>
+    <div class="calendar col-lg-7 order-lg-1 p-0">
+        <%= month_calendar events: @logs do |date, logs| %>
+        <%= date.day %>
+        <% logs.each do |log| %>
+        <div>
+            <%= link_to log.title, log %>
+        </div>
+        <% end %>
+        <% end %>
+    </div>
 </div>

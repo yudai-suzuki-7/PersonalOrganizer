@@ -1,0 +1,11 @@
+<%= form_with(model: error, local: true) do |form| %>
+<% if error.errors.any? %>
+<div class="error-messages">
+    <% error.errors.full_messages.each do |message| %>
+    <p class="text-danger">
+        <%= message %>
+    </p>
+    <% end %>
+</div>
+<% end %>
+<% end %>

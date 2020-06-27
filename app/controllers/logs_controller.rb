@@ -14,10 +14,14 @@ class LogsController < ApplicationController
   end
 
   def create
-    log = Log.new(log_params)
-    log.user_id = current_user.id
-    log.save
-    redirect_to logs_path
+    @log = Log.new(log_params)
+    @log.user_id = current_user.id
+    if @log.save
+      redirect_to log_path(@log)
+    else
+      @logs = Log.all
+      render action: :new
+    end
   end
 
   def destroy
@@ -34,9 +38,10 @@ class LogsController < ApplicationController
   def update
     @log = Log.find(params[:id])
     if @log.update(log_params)
-      redirect_to logs_path
+      redirect_to log_path(@log)
     else
-      render 'edit'
+      @logs = Log.all
+      render action: :edit
     end
   end
 

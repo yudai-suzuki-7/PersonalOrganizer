@@ -3,7 +3,7 @@ class CreateTodos < ActiveRecord::Migration[5.2]
     create_table :todos do |t|
       t.integer :user_id, null: false
       t.string :todo_text,  null: false
-      t.integer :status, default: 0
+      t.integer :todo_status, default: 0
 
       t.timestamps
     end

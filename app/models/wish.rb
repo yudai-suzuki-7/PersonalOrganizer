@@ -4,4 +4,6 @@ class Wish < ApplicationRecord
 
   validates :user_id, presence: true
   validates :wish_text, presence: true
+
+  enum wish_status: { undone: 0, done: 1 }
 end

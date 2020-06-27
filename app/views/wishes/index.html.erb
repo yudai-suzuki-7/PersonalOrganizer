@@ -1,20 +1,21 @@
-<div class="row">
-    <h1 class="ml-3">Wish List</h1>
+<div class="row mx-3" style="margin-top: 26px;">
+    <h1>Wish List</h1>
 </div>
-<div class="row wish-list">
-    <div class="wish-add-form ml-3">
+<div class="row wish-list mx-3">
+    <div class="wish-add-form">
         <%= form_for(@wish,url: wishes_path) do |form| %>
         <span class="wish_text">
-            <%= form.text_field :wish_text, style:"height:30px"; %>
+            <%= form.text_field :wish_text, style:"height:30px; width:300px;" %>
         </span>
         <span class="submit">
             <%= form.submit('追加',class: "btn btn-secondary btn-sm") %>
         </span>
         <% end %>
     </div>
-    <table class="table table-striped mt-3 mx-3">
+    <table class="table table-striped mt-3">
         <thead>
             <tr>
+                <th></th>
                 <th class="wish-texts">やりたいこと</th>
                 <th>LogicTree</th>
                 <th>編集</th>
@@ -22,26 +23,27 @@
             </tr>
         </thead>
         <tbody>
-            <% @wishes.each do |wish| %>
+            <% @wishes.each_with_index do |wish, i| %>
             <tr>
+                <td class="link-icon">
+                    <% if wish.wish_status == "done" %>
+                    <%= link_to "", wish_check_path(wish), method: :patch, class:"btn-link glyphicon glyphicon-ok-circle text-danger" %>
+                    <% else %>
+                    <%= link_to "", wish_check_path(wish), method: :patch, class:"btn-link glyphicon glyphicon-ok-circle text-secondary" %>
+                    <% end %>
+                </td>
                 <td class="wish-text">
-                    .
+                    <%="#{(i + 1)}"%>.
                     <%= wish.wish_text %>
                 </td>
-                <% if wish.logictree.nil? %>
-                <td>
-                    <%= link_to "logical tree",  wish_logictrees_path, class:"text-center" %>
-                </td>
-                <% else %>
                 <td class="link-icon">
-                    <%= link_to "", wish_path(wish),class:"glyphicon glyphicon-tree-deciduous" %>
-                </td>
-                <% end %>
-                <td class="link-icon">
-                    <%= link_to "", edit_wish_path(wish),class:"glyphicon glyphicon-edit text-center" %>
+                    <%= link_to "", wish_path(wish),class:"btn-link glyphicon glyphicon-tree-deciduous" %>
                 </td>
                 <td class="link-icon">
-                    <%= link_to "", wish_path(wish),class:"glyphicon glyphicon-trash text-center", method: :delete, data: { confirm: '消去しますか？' } %>
+                    <%= link_to "", edit_wish_path(wish),class:"btn-link glyphicon glyphicon-edit text-center" %>
+                </td>
+                <td class="link-icon">
+                    <%= link_to "", wish_path(wish),class:"btn-link glyphicon glyphicon-trash text-center", method: :delete, data: { confirm: '消去しますか？' } %>
                 </td>
             </tr>
             <% end %>

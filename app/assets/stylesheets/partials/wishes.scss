@@ -3,20 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 $font: #333;
+$listbg: #F2F2F2;
 
 .wish-list {
-    table {
-        counter-reset: rowCount;
-    }
-
-    tbody tr {
-        counter-increment: rowCount;
-    }
-
-    tbody tr td:first-child::before {
-        content: counter(rowCount);
-    }
-
     th {
         text-align: center;
     }
@@ -32,15 +21,71 @@ $font: #333;
 
 }
 
+.glyphicon-repeat {
+  font-size: 30px;
+  padding-top: 30px;
+}
+
 .logictree-table {
     th td {
-    text-aligin: center;
+        text-aligin: center;
     }
 
     textarea {
         resize: none;
-        width: 280px;
-        height: 100px;
-        margin: 0 auto;
+        width: 100%;
+        margin: auto 0;
+    }
+
+    input {
+        width: 100%;
+        margin: auto 0;
+    }
+
+    td {
+        padding: 10px 40px;
+        border: 1px black solid;
+        text-align: center;
+
+        &.logic1,
+        &.logic3,
+        &.logic11,
+        &.logic31,
+        &.wish-text {
+            background-color: $listbg;
+        }
+
+        &.logic1,
+        &.logic3,
+            {
+            textarea {
+                background-color: $listbg;
+            }
+        }
+
+        &.logic11,
+        &.logic31 {
+            input {
+                background-color: $listbg;
+                border: 1px solid $font;
+                outline: none;
+                border-radius: 1px;
+            }
+        }
+        .wish-list{
+             background-color: $listbg;
+        }
+    }
+
+    td textarea {
+        vertical-align: middle;
+
+
+    }
+}
+
+.submit {
+    a:visited {
+        color: #fff;
     }
 }

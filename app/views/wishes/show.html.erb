@@ -1,14 +1,21 @@
-<div class="row">
-    <h1 class="ml-3">LogicTree</h1>
+<div class="row mx-3">
+    <h1>LogicTree
+     <%= link_to "", wishes_path,class:"btn-link glyphicon glyphicon-repeat" %>
+     </h1>
 </div>
 
 <%= form_for [@wish,@logictree] do |form| %>
-<div class="row">
-    <table class="logictree-table table table-bordered mx-3">
-        <tr class="">
-            <td class="wish" rowspan="9">
-                <strong class="wish-text">
-                    <%= @wish.wish_text %></strong>
+<div class="row mx-3 ">
+    <table class="logictree-table table table-bordered">
+        <tr >
+            <th class="text-center">やりたいこと</th>
+            <th class="text-center">ロジック1</th>
+            <th class="text-center">ロジック2</th>
+        </tr>
+        <tr>
+            <td class="wish align-middle" rowspan="9">
+                <div class="wish-text">
+                    <%= @wish.wish_text %></div>
             </td>
             <td class="logic1" rowspan="3">
                 <%= form.text_area :logic1 %>
@@ -65,9 +72,9 @@
         </tr>
     </table>
 </div>
-<div class="row">
+<div class="row mx-3">
     <div class="submit">
-        <%= form.submit %>
+        <%= form.submit('保存',class:"btn btn-secondary btn-sm ml-3") %>
     </div>
 </div>
 <% end %>

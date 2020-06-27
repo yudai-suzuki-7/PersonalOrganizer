@@ -23,15 +23,26 @@ $color-line: #888;
 $color-list: #ddd;
 $color-hover1: #fff;
 $color-hover2: #000;
+$footer-p: #000;
+$font-nav: #666;
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
 #main {
-    margin-bottom: 100px;
+    margin-bottom: 80px;
+}
+
+.navbar-nav {
+    p {
+        font-size: 20px;
+        padding: 15px 0;
+        color: $font-nav;
+    }
 }
 
 .logo {
@@ -57,11 +68,6 @@ $color-hover2: #000;
     li {
         border-bottom: 1px #color-list solid;
     }
-
-    a:hover {
-        color: $color-hover1;
-        background-color: $color-hover2;
-    }
 }
 
 header {
@@ -70,14 +76,41 @@ header {
     maxwidth: 1100px;
     margin: 0 auto;
     padding: 0 4%;
-    .btn-link{
+
+    .btn-link {
         padding: 0 20px;
         font-size: 20px;
     }
-    .user-name{
-      padding-right: 30px;
+
+    .user-name {
+        padding-right: 30px;
     }
+
     .navbar-brand {
-      font-size:30px;
+        font-size: 30px;
+    }
+}
+
+.wrapper {
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 84px;
+    box-sizing: border-box;
+}
+
+footer {
+    border-top: 2px $color-line solid;
+    border-bottom: 2px $color-line solid;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    text-align: center;
+    padding: 26px 0;
+    position: absolute;
+    bottom: 0;
+
+    p {
+        color: $footer-p;
+        font-size: 0.85rem;
     }
 }

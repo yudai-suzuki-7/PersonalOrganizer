@@ -1,35 +1,37 @@
-<div class="row">
-<p id="notice"><%= notice %></p>
-<h1>Log</h1>
+<div class="row mx-3">
+    <h1>Diary
+        <%= link_to "", new_log_path,class:"glyphicon glyphicon-plus-sign" %>
+    </h1>
 </div>
-
-<div class="row">
-<div class="calendar col-7">
-<%= month_calendar events: @logs do |date, logs| %>
-  <%= date.day %>
-
-  <% logs.each do |log| %>
-    <div>
-      <%= link_to log.title, log %>
+<div class="row mx-3">
+    <div class="log-list col-lg-5 order-lg-2">
+        <div class="title">
+            <h3 class="mt-0">
+                <label><%= @log.title %></label>
+                <p>
+                    <%= @log.start_time.strftime("%Y/%m/%d") %>
+                </p>
+            </h3>
+        </div>
+        <div class="image mt-3">
+            <%= attachment_image_tag(@log, :log_img, alt:"本画像", class:"figure-img img-fluid rounded") %>
+        </div>
+        <div class="body mt-3">
+            <%= @log.content %>
+        </div>
+        <div class="link-icon mt-3">
+            <%= link_to '編集', edit_log_path(@log) %> |
+            <%= link_to '戻る', logs_path %>
+        </div>
     </div>
-  <% end %>
-<% end %>
-</div>
-
-
-<div class="col-5">
-<p>
-  <%= @log.start_time.strftime("%Y/%m/%d") %><br>
-  <strong><%= @log.title %></strong>
-</p>
-
-<%= attachment_image_tag(@log, :log_img, alt:"本画像", class:"figure-img img-fluid rounded") %>
-
-<p>
-  <%= @log.content %>
-</p>
-
-<%= link_to 'Edit', edit_log_path(@log) %> |
-<%= link_to 'Back', logs_path %>
-</div>
+    <div class="calendar col-lg-7 order-lg-1">
+        <%= month_calendar events: @logs do |date, logs| %>
+        <%= date.day %>
+        <% logs.each do |log| %>
+        <div class="log">
+            <%= link_to log.title, log %>
+        </div>
+        <% end %>
+        <% end %>
+    </div>
 </div>

@@ -1,21 +1,17 @@
 <div class="row mx-3">
-  <h1>Task Edit</h1>
+    <h1>Task Edit
+        <%= link_to "", todos_path,class:"btn-link glyphicon glyphicon-repeat" %>
+    </h1>
 </div>
-
 <div class="row mx-3">
-  <div class="add-form">
-    <%= form_for(@todo,url: todo_path) do |form| %>
-
-    <span class="todo_text">
-      <%= form.label :todo_text,"Task" %>
-      <%= form.text_field :todo_text, style:"height:30px; width:200px;" %>
-    </span>
-
-    <span class="submit">
-      <%= form.submit('保存',class: "btn btn-secondary btn-sm") %>
-    </span>
-
-    <% end %>
-
-  </div>
+    <div class="add-form">
+        <%= form_for(@todo,url: todo_path) do |form| %>
+        <span class="todo_text">
+            <%= form.text_field :todo_text, style:"height:30px; width:300px;" %>
+        </span>
+        <span class="submit">
+            <%= form.submit('保存',class: "btn btn-secondary btn-sm") %>
+        </span>
+        <% end %>
+    </div>
 </div>

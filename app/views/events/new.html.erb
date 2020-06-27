@@ -1,5 +1,8 @@
-<h1>New Event</h1>
-
+<div class="row mx-3">
+    <h1>New Event
+     <%= link_to "", events_path,class:"btn-link glyphicon glyphicon-repeat" %>
+     </h1>
+</div>
+<div class="row mx-3 event-form">
 <%= render 'form', event: @event %>
-
-<%= link_to '戻る', events_path %>
+</div>

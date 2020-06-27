@@ -9,7 +9,7 @@ class LogictreesController < ApplicationController
     @logictree = Logictree.new(logictree_params)
     @logictree.wish_id = @wish.id
     if @logictree.save
-      redirect_to wish_logictrees_path(params[:wish_id])
+      redirect_to wishes_path
     else
       render action: :show, noice:"保存失敗・・・"
     end
@@ -19,7 +19,7 @@ class LogictreesController < ApplicationController
     wish = Wish.find(params[:wish_id])
     @logictree = Logictree.where(wish_id: wish.id)
     if @logictree.update(logictree_params)
-      redirect_to wish_logictrees_path(wish)
+      redirect_to wishes_path
     else
       render action: :show, noice:"保存失敗・・・"
     end

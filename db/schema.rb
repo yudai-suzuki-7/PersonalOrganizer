@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2020_06_22_112220) do
   create_table "todos", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "todo_text", null: false
-    t.integer "status", default: 0
+    t.integer "todo_status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 2020_06_22_112220) do
   create_table "wishes", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "wish_text", null: false
+    t.integer "wish_status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

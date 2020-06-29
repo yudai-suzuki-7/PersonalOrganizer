@@ -14,7 +14,7 @@
             </h3>
         </div>
         <div class="image mt-3">
-            <%= attachment_image_tag(@log, :log_img, alt:"本画像", class:"figure-img img-fluid rounded") %>
+            <%= attachment_image_tag(@log, :log_img, alt:"Log画像", class:"figure-img img-fluid rounded") %>
         </div>
         <div class="body mt-3">
             <%= @log.content %>
@@ -24,12 +24,12 @@
             <%= link_to '戻る', logs_path %>
         </div>
     </div>
-    <div class="calendar col-lg-7 order-lg-1">
+    <div class="calendar col-lg-7 order-lg-1 p-0">
         <%= month_calendar events: @logs do |date, logs| %>
         <%= date.day %>
         <% logs.each do |log| %>
         <div class="log">
-            <%= link_to log.title, log %>
+            <%= link_to log.title, log ,class:"btn-link"%>
         </div>
         <% end %>
         <% end %>

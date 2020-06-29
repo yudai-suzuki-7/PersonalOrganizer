@@ -1,0 +1,40 @@
+<div class="col-12 p-0">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-center">タイトル</th>
+                <th class="text-center">開始</th>
+                <th class="text-center">終了</th>
+                <th class="text-center">詳細</th>
+                <th class="text-center">編集</th>
+                <th class="text-center">消去</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% events.each do |event| %>
+            <% if Date.today < event.end_date %>
+            <tr class="text-center">
+                <td class="text-left">
+                    <%= event.title %>
+                </td>
+                <td>
+                    <%= event.start_date.strftime("%m-%d %H:%M:%S") %>
+                </td>
+                <td>
+                    <%= event.end_date.strftime("%m-%d %H:%M:%S") %>
+                </td>
+                <td>
+                    <%= link_to "", event,class:"btn-link  glyphicon glyphicon-search" %>
+                </td>
+                <td>
+                    <%= link_to "", edit_event_path(event),class:"btn-link glyphicon glyphicon-edit"  %>
+                </td>
+                <td>
+                    <%= link_to "", event,class:"btn-link glyphicon glyphicon-trash", method: :delete, data: { confirm: '消去しますか？' } %>
+                </td>
+            </tr>
+            <% end %>
+            <% end %>
+        </tbody>
+    </table><br>
+</div>

@@ -56,7 +56,9 @@ class WishesController < ApplicationController
       wish.wish_status = "undone"
     end
     wish.update(wish_status: wish.wish_status)
-    redirect_to wishes_path
+    @wishes = Wish.where(user_id: current_user)
+    @wish = Wish.new
+    render action: :index
   end
 
 	private

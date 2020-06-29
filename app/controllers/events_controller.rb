@@ -5,21 +5,24 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.where(user_id: current_user)
+    @events = Event.where(user_id: current_user.id).order(:start_date)
+    @event = Event.new
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
+    @events = Event.where(user_id: current_user.id).order(:start_date)
   end
 
   # GET /events/new
   def new
-    @event = Event.new
+    @events = Event.where(user_id: current_user.id).order(:start_date)
   end
 
   # GET /events/1/edit
   def edit
+     @events = Event.where(user_id: current_user.id).order(:start_date)
   end
 
   # POST /events

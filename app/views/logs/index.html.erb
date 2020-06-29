@@ -16,7 +16,7 @@
                 </tr>
             </thead>
             <tbody>
-                <% @logs.first(3).each do |log| %>
+                <% @logs.first(5).each do |log| %>
                 <tr>
                     <td class="text-left">
                         <%= link_to log.title, log ,class:"btn-link"%>
@@ -35,7 +35,7 @@
             </tbody>
         </table><br>
     </div>
-    <div class="calendar  col-md-12  col-lg-7 order-lg-1 p-0">
+    <div class="calendar col-lg-7 order-lg-1 p-0">
         <%= month_calendar events: @logs do |date, logs| %>
         <%= date.day %>
         <% logs.each do |log| %>

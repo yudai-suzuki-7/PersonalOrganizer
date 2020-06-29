@@ -1,7 +1,5 @@
-<div class="row mx-3">
-    <h1>BookLog
-        <%= link_to "", booklogs_path,class:"btn-link glyphicon glyphicon-repeat" %>
-    </h1>
+<div class="row mx-3" style="margin-top: 26px;">
+    <h1>BookLog</h1>
 </div>
 <div class="row mx-3 mt-3">
     <div class="col-5 text-center booklog-list">
@@ -22,7 +20,7 @@
         </div>
         <div class="mx-auto text-justify mt-3">
             <p class="book-link">
-                <%= link_to "編集", edit_booklog_path(@booklog),class:"glyphicon glyphicon-edit btn-link" %>
+                <%= link_to "編集", edit_booklog_path(@booklog),class:"btn-link" %>|<%= link_to "戻る", booklogs_path,class:"btn-link" %>
             </p>
         </div>
     </div>

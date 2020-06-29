@@ -25,24 +25,24 @@
         </thead>
         <tbody>
             <% @todos.each do |todo| %>
-                <tr>
-                    <td class="text-center check-icon">
-                        <% if todo.todo_status == "done" %>
-                        <%= link_to "", todo_check_path(todo), method: :patch, class:"btn-link glyphicon glyphicon-ok-circle text-danger" %>
-                        <% else %>
-                        <%= link_to "", todo_check_path(todo), method: :patch, class:"btn-link glyphicon glyphicon-ok-circle text-secondary" %>
-                        <% end %>
-                    </td>
-                    <td class="link-icon">
-                        <%= todo.todo_text %>
-                    </td>
-                    <td class="link-icon text-center">
-                        <%= link_to "", edit_todo_path(todo),class:"btn-link glyphicon glyphicon-edit" %>
-                    </td>
-                    <td class="link-icon text-center">
-                        <%= link_to "", todo_path(todo),class:"btn-link glyphicon glyphicon-trash",  method: :delete, data: { confirm: '消去しますか？' } %>
-                    </td>
-                </tr>
+            <tr>
+                <td class="text-center check-icon todo-check-button">
+                    <% if todo.todo_status == "done" %>
+                    <%= link_to "", todo_check_path(todo), method: :patch,class:"btn-link glyphicon glyphicon-ok-circle text-danger" %>
+                    <% else %>
+                    <%= link_to "", todo_check_path(todo), method: :patch,class:"btn-link glyphicon glyphicon-ok-circle text-secondary" %>
+                    <% end %>
+                </td>
+                <td class="link-icon">
+                    <%= todo.todo_text %>
+                </td>
+                <td class="link-icon text-center">
+                    <%= link_to "", edit_todo_path(todo),class:"btn-link glyphicon glyphicon-edit" %>
+                </td>
+                <td class="link-icon text-center">
+                    <%= link_to "", todo_path(todo),class:"btn-link glyphicon glyphicon-trash",  method: :delete, data: { confirm: '消去しますか？' } %>
+                </td>
+            </tr>
             <% end %>
         </tbody>
     </table>

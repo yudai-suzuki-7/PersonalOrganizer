@@ -1,0 +1,37 @@
+<table class="table table-striped mt-3" >
+    <thead>
+        <tr>
+            <th></th>
+            <th class="wish-texts">やりたいこと</th>
+            <th>LogicTree</th>
+            <th>編集</th>
+            <th>消去</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% wishes.each_with_index do |wish, i| %>
+        <tr>
+            <td class="link-icon ",id="wish-check-button">
+                <% if wish.wish_status == "done" %>
+                <%= link_to "", wish_check_path(wish), method: :patch, class:"btn-link glyphicon glyphicon-ok-circle text-danger" %>
+                <% else %>
+                <%= link_to "", wish_check_path(wish), method: :patch,  class:"btn-link glyphicon glyphicon-ok-circle text-secondary" %>
+                <% end %>
+            </td>
+            <td class="wish-text">
+                <%="#{(i + 1)}"%>.
+                <%= wish.wish_text %>
+            </td>
+            <td class="link-icon">
+                <%= link_to "", wish_path(wish),class:"btn-link glyphicon glyphicon-tree-deciduous" %>
+            </td>
+            <td class="link-icon">
+                <%= link_to "", edit_wish_path(wish),class:"btn-link glyphicon glyphicon-edit text-center" %>
+            </td>
+            <td class="link-icon">
+                <%= link_to "", wish_path(wish),class:"btn-link glyphicon glyphicon-trash text-center", method: :delete, data: { confirm: '消去しますか？' } %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

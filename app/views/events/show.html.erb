@@ -1,54 +1,20 @@
 <div class="row mx-3">
     <h1 class="">Schedule
-        <%= link_to "", new_event_path,class:"btn-link glyphicon glyphicon-plus-sign" %>
+        <%= link_to "", events_path,class:"btn-link glyphicon glyphicon-plus-sign" %>
     </h1>
 </div>
 <div class="row m-3">
-    <div class=col-12>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th class="text-center">タイトル</th>
-                    <th class="text-center">開始</th>
-                    <th class="text-center">終了</th>
-                    <th class="text-center">詳細</th>
-                    <th class="text-center">編集</th>
-                    <th class="text-center">消去</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% @events.each do |event| %>
-                <tr class="text-center">
-                    <td class="text-left">
-                        <%= event.title %>
-                    </td>
-                    <td>
-                        <%= event.start_date.strftime("%m-%d %H:%M:%S") %>
-                    </td>
-                    <td>
-                        <%= event.end_date.strftime("%m-%d %H:%M:%S") %>
-                    </td>
-                    <td>
-                        <%= link_to "", event,class:"btn-link  glyphicon glyphicon-search" %>
-                    </td>
-                    <td>
-                        <%= link_to "", edit_event_path(event),class:"btn-link glyphicon glyphicon-edit"  %>
-                    </td>
-                    <td>
-                        <%= link_to "", event,class:"btn-link glyphicon glyphicon-trash", method: :delete, data: { confirm: '消去しますか？' } %>
-                    </td>
-                </tr>
-                <% end %>
-            </tbody>
-        </table><br>
-    </div>
+    <%= render "next_event", events: @events %>
 </div>
 <div class="row mx-3 event-form">
-    <div class="col-lg-5 order-lg-2">
+    <div class="col-7 p-0">
+        <div id="calendar"></div>
+    </div>
+    <div class="col-5">
         <div class="title">
             <h3><label>
-                <%= @event.title %>
-            </label></h3>
+                    <%= @event.title %>
+                </label></h3>
         </div>
         <div class="body">
             <strong>内容</strong>
@@ -69,8 +35,5 @@
             </p>
         </div>
         <%= link_to '編集', edit_event_path(@event),class:"btn-link glyphicon glyphicon-edit text-center" %>
-    </div>
-    <div class="col-lg-7 order-lg-1 p-0">
-        <div id="calendar"></div>
     </div>
 </div>

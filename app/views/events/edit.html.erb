@@ -1,45 +1,58 @@
 <div class="row mx-3">
-    <h1>Editing Event
-        <%= link_to "", events_path,class:"btn-link glyphicon glyphicon-repeat" %>
+    <h1 class="">Schedule
+        <%= link_to "", events_path,class:"btn-link glyphicon glyphicon-plus-sign" %>
     </h1>
 </div>
-<div class="row mx-3 event-form">
-    <%= form_with(model: @event, local: true) do |form| %>
-    <% if @event.errors.any? %>
-    <div class="error-messages">
-        <% @event.errors.full_messages.each do |message| %>
-        <p class="text-danger">
-            <%= message %>
-        </p>
-        <% end %>
+<div class="row m-3">
+    <%= render "next_event", events: @events %>
+</div>
+<div class="row mx-3">
+    <div class="col-7 p-0">
+        <div id="calendar"></div>
     </div>
-    <% end %>
-    <div class="field">
-        <div>
-            <%= form.label :title,"タイトル" %>
+    <div class="col-5">
+        <div class="row mx-3 event-form">
+            <h3>-予定の編集-
+            </h3>
+            <%= form_with(model: @event, local: true) do |form| %>
+            <% if @event.errors.any? %>
+            <div class="error-messages">
+                <% @event.errors.full_messages.each do |message| %>
+                <p class="text-danger">
+                    <%= message %>
+                </p>
+                <% end %>
+            </div>
+            <% end %>
+            <div class="field">
+                <div>
+                    <%= form.label :title,"タイトル" %>
+                </div>
+                <div>
+                    <%= form.text_field :title %>
+                </div>
+            </div>
+            <div class="field">
+                <div>
+                    <%= form.label :body, "内容" %>
+                </div>
+                <div>
+                    <%= form.text_area :body %>
+                </div>
+            </div>
+            <div class="field">
+                <%= form.label :start_date,"開始" %>
+                <%= form.datetime_select :start_date, use_month_numbers: true  %>
+            </div>
+            <div class="field">
+                <%= form.label :end_date,"終了" %>
+                <%= form.datetime_select :end_date, use_month_numbers: true  %>
+            </div>
+            <div class="actions">
+                <%= form.submit('保存',class:"btn btn-secondary btn-sm") %>
+            </div>
+            <% end %>
         </div>
-        <div>
-            <%= form.text_field :title %>
-        </div>
     </div>
-    <div class="field">
-        <div>
-            <%= form.label :body, "内容" %>
-        </div>
-        <div>
-            <%= form.text_area :body %>
-        </div>
-    </div>
-    <div class="field">
-        <%= form.label :start_date,"開始" %>
-        <%= form.datetime_select :start_date, use_month_numbers: true  %>
-    </div>
-    <div class="field">
-        <%= form.label :end_date,"終了" %>
-        <%= form.datetime_select :end_date, use_month_numbers: true  %>
-    </div>
-    <div class="actions">
-        <%= form.submit('保存',class:"btn btn-secondary btn-sm") %>
-    </div>
-    <% end %>
+</div>
 </div>

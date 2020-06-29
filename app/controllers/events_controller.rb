@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.where(user_id: current_user.id).order(:start_date)
+    @events = Event.where(user_id: current_user.id).order(:start_time)
     @event = Event.new
   end
 
@@ -15,10 +15,6 @@ class EventsController < ApplicationController
     @events = Event.where(user_id: current_user.id).order(:start_date)
   end
 
-  # GET /events/new
-  def new
-    @events = Event.where(user_id: current_user.id).order(:start_date)
-  end
 
   # GET /events/1/edit
   def edit
@@ -31,12 +27,14 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.user_id = current_user.id
 
+
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event }
         format.json { render :show, status: :created, location: @event }
       else
-        format.html { render :new }
+        @events = Event.where(user_id: current_user.id).order(:start_date)
+        format.html { render :index }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
@@ -50,6 +48,7 @@ class EventsController < ApplicationController
         format.html { redirect_to @event }
         format.json { render :show, status: :ok, location: @event }
       else
+        @events = Event.where(user_id: current_user.id).order(:start_date)
         format.html { render :edit }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end

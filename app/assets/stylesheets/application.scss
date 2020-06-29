@@ -35,6 +35,13 @@ $font-nav: #666;
 
 a {
     color: $font-nav;
+    &:link {
+        color:$font-nav;
+    }
+}
+
+select {
+     vertical-align: middle;
 }
 
 #main {

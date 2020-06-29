@@ -1,23 +1,21 @@
 <div class="row mx-3">
     <h1 class="">Schedule
-        <%= link_to "", new_event_path,class:"btn-link glyphicon glyphicon-plus-sign" %>
+        <%= link_to "", events_path,class:"btn-link glyphicon glyphicon-plus-sign" %>
     </h1>
 </div>
 <div class="row m-3">
     <%= render "next_event", events: @events %>
 </div>
 <div class="row mx-3">
-    <div class="col-lg-5 order-lg-2">
+    <div class="col-7 p-0">
+        <div id="calendar"></div>
+    </div>
+    <div class="col-5">
         <div class="row mx-3">
-            <h1>New Event
-                <%= link_to "", events_path,class:"btn-link glyphicon glyphicon-repeat" %>
-            </h1>
+            <h4>-予定を追加-</h4>
         </div>
         <div class="row mx-3 event-form">
             <%= render 'form', event: @event %>
         </div>
-    </div>
-    <div class="col-lg-7 order-lg-1 p-0">
-        <div id="calendar"></div>
     </div>
 </div>

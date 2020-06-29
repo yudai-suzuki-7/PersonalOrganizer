@@ -2,7 +2,7 @@ class LogsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @logs = Log.where(user_id: current_user)
+    @logs = Log.where(user_id: current_user.id).order(:updated_at)
   end
 
   def new

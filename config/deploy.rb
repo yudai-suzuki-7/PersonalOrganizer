@@ -2,7 +2,7 @@
 lock "~> 3.14.1"
 
 set :application, "PersonalOrganizer"
-set :repo_url, "https://github.com/yudai-suzuki-7/PersonalOrganizer"
+set :repo_url, "git@github.com:yudai-suzuki-7/LifeOrganizer.git"
 set :deploy_to, "/home/ec2-user/PersonalOrganizer"
 set :rbenv_ruby, '2.5.7'
 set :linked_files, %w{config/master.key .env}

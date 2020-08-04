@@ -58,7 +58,7 @@ class WishesController < ApplicationController
     wish.update(wish_status: wish.wish_status)
     @wishes = Wish.where(user_id: current_user)
     @wish = Wish.new
-    render action: :index
+    render 'check.js.erb'
   end
 
 	private

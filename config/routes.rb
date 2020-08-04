@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   resources :wishes do
     resource :logictrees
   end
-  patch 'wish_check/:id' => 'wishes#check' ,as: "wish_check"
+
+  post 'wish_check_create/:id' => 'wish_checks#create' ,as: "wish_check_create"
+  delete 'wish_check_destroy/:id' => 'wish_checks#destroy' , as: "wish_check_delete"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

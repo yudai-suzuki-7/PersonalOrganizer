@@ -28,9 +28,9 @@
             <tr>
                 <td class="text-center check-icon todo-check-button">
                     <% if todo.todo_status == "done" %>
-                    <%= link_to "", todo_check_path(todo), method: :patch,class:"btn-link glyphicon glyphicon-ok-circle text-danger" %>
+                    <%= link_to "", todo_check_path(todo), method: :patch,class:"btn-link glyphicon glyphicon-ok-circle text-danger　todo_check" %>
                     <% else %>
-                    <%= link_to "", todo_check_path(todo), method: :patch,class:"btn-link glyphicon glyphicon-ok-circle text-secondary" %>
+                    <%= link_to "", todo_check_path(todo), method: :patch,class:"btn-link glyphicon glyphicon-ok-circle text-secondary todo_check" %>
                     <% end %>
                 </td>
                 <td class="link-icon">

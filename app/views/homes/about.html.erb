@@ -1,8 +1,8 @@
 <h1>このサイトについて</h1>
 
 <div class="row">
-  <div class="col-12  px-5 mt-5">
-    近年書類の電子化が進んでおり、今まで紙だった本が電子書籍となったり、が進んできている。 そんな中、スケジュールや日記などをスマホ等のデバイスで管理している人も多くなってきている。 色々な種類のリフィルの中から好きな物を選んで自分だけのオリジナル手帳を作る楽しさや必要なものを選択して自分の使いやすいものにしていけるのはシステム手帳ならではだと思う。 自分の好きなリフィルを選ぶ楽しみはのこしつつ、WEB上ならではのPCやスマホなどの複数のデバイスからのアクセスや、両方のいいとこ取りができるシステム手帳ができないかと考えた。
+  <div id="typing" class="col-12  px-5 mt-5">
+    近年書類の電子化が進んでおり、今まで紙だった本電子書籍化が進んできている。 そんな中、スケジュールや日記などをスマホ等のデバイスで管理している人も多くなってきている。 色々な種類のリフィルの中から好きな物を選んで自分だけのオリジナル手帳を作る楽しさや必要なものを選択して自分の使いやすいものにしていけるのはシステム手帳ならではだと思う。 自分の好きなリフィルを選ぶ楽しみはのこしつつ、WEB上ならではのPCやスマホなどの複数のデバイスからのアクセスや、両方のいいとこ取りができるシステム手帳ができないかと考えた。
   </div>
 </div>
 
@@ -35,3 +35,21 @@
 
   </div>
 </div>
+
+<script>
+  function typing(str = ""){
+  let buf = document.getElementById("typing").innerHTML; //書き込み済みの文字を要素から取得
+  let writed = buf.length; //書き込み済みの文字数を取得
+  let write = "";
+  if(writed < str.length){
+    write = str.charAt(writed); //1文字だけ取得する
+  }else{
+    buf = ""; //今回は何度も繰り返すために内容を消去します
+  }
+  document.getElementById("typing").innerHTML = buf + write; //1文字だけ追加していく
+}
+const str = document.getElementById("typing").innerHTML; //書き込む文字を要素から取得
+const delay = 200 //1文字が表示される時間
+document.getElementById("typing").innerHTML = "";
+window.setInterval(function(){typing(str);}, delay);
+</script>

@@ -14,7 +14,7 @@
         </span>
         <% end %>
     </div>
-    <table class="todo_list table table-striped mt-3">
+    <table id="sortable-table" class="todo_list table table-striped mt-3">
         <thead>
             <tr>
                 <th class="head-text text-center">Check</th>
@@ -47,3 +47,8 @@
         </tbody>
     </table>
 </div>
+<script>
+$(function(){
+    $('#sortable-table tbody').sortable();
+});
+</script>

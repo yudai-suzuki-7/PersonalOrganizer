@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_22_112220) do
+ActiveRecord::Schema.define(version: 2020_10_20_142958) do
 
   create_table "booklogs", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 2020_06_22_112220) do
     t.integer "todo_status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "position"
   end
 
   create_table "users", force: :cascade do |t|

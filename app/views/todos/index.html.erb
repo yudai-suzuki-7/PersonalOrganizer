@@ -17,6 +17,8 @@
     <table id="sortable-table" class="todo_list table table-striped mt-3">
         <thead>
             <tr>
+                <th></th>
+                <th></th>
                 <th class="head-text text-center">Check</th>
                 <th class="head-text text-center">Task</th>
                 <th class="head-text text-center">編集</th>
@@ -25,30 +27,32 @@
         </thead>
         <tbody>
             <% @todos.each do |todo| %>
-            <tr>
-                <td class="text-center check-icon todo-check-button">
-                    <% if todo.todo_status == "done" %>
-                    <%= link_to "", todo_check_path(todo), method: :patch,class:"btn-link glyphicon glyphicon-ok-circle text-danger" %>
-                    <% else %>
-                    <%= link_to "", todo_check_path(todo), method: :patch,class:"btn-link glyphicon glyphicon-ok-circle text-secondary" %>
-                    <% end %>
-                </td>
-                <td class="link-icon">
-                    <%= todo.todo_text %>
-                </td>
-                <td class="link-icon text-center">
-                    <%= link_to "", edit_todo_path(todo),class:"btn-link glyphicon glyphicon-edit" %>
-                </td>
-                <td class="link-icon text-center">
-                    <%= link_to "", todo_path(todo),class:"btn-link glyphicon glyphicon-trash",  method: :delete, data: { confirm: '消去しますか？' } %>
-                </td>
-            </tr>
+                <%= render 'todo_list', todo: todo %>
             <% end %>
         </tbody>
     </table>
 </div>
 <script>
-$(function(){
-    $('#sortable-table tbody').sortable();
+    
+// table_sort.js
+$(function() {
+  return $('.table-sortable').sortable({
+    axis: 'y',
+    items: '.sentence',
+    update: function() {
+    // ajax処理で並べ替え後の値をサーバー側に渡す
+      $.ajax({
+        type: 'POST',
+        url: '/sort',
+        dataType: 'json',
+        // $('.table-sortable').sortable('serialize') で変更後の値を取得
+        data: $('.table-sortable').sortable('serialize')
+      });
+    },
+    // ここはおまけで変更完了エフェクトを付け足す
+    stop: function(e, ui) {
+      return ui.item.children('td').effect('highlight');
+    }
+  });
 });
 </script>

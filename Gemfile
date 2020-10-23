@@ -77,9 +77,11 @@ gem 'bootstrap', '~> 4.3.1'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'rakuten_web_service'
-
+gem 'acts_as_list'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'jquery-ui-rails'
+gem 'jquery-turbolinks'
 
 gem 'dotenv-rails'
 group :production do

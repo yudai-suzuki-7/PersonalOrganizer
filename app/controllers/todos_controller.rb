@@ -4,7 +4,13 @@ class TodosController < ApplicationController
 
   def index
     @todo = Todo.new
-    @todos = Todo.where(user_id: current_user)
+    @todos = Todo.where(user_id: current_user).rank(:row_order)
+  end
+
+  def sort
+    todo = Todo.find(params[:todo_id])
+    todo.update(todo_params)
+    render body: nil
   end
 
   def create
@@ -49,7 +55,7 @@ class TodosController < ApplicationController
 
   private
   def todo_params
-    params.require(:todo).permit(:user_id, :todo_text, :todo_status)
+    params.require(:todo).permit(:user_id, :todo_text, :todo_status, :row_order_position)
   end
 
   def check_todo

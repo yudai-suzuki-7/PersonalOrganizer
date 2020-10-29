@@ -23,27 +23,32 @@
                 <th class="head-text text-center">消去</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="todo_list">
             <% @todos.each do |todo| %>
-            <tr>
-                <td class="text-center check-icon todo-check-button">
-                    <% if todo.todo_status == "done" %>
-                    <%= link_to "", todo_check_path(todo), method: :patch,class:"btn-link glyphicon glyphicon-ok-circle text-danger" %>
-                    <% else %>
-                    <%= link_to "", todo_check_path(todo), method: :patch,class:"btn-link glyphicon glyphicon-ok-circle text-secondary" %>
-                    <% end %>
-                </td>
-                <td class="link-icon">
-                    <%= todo.todo_text %>
-                </td>
-                <td class="link-icon text-center">
-                    <%= link_to "", edit_todo_path(todo),class:"btn-link glyphicon glyphicon-edit" %>
-                </td>
-                <td class="link-icon text-center">
-                    <%= link_to "", todo_path(todo),class:"btn-link glyphicon glyphicon-trash",  method: :delete, data: { confirm: '消去しますか？' } %>
-                </td>
-            </tr>
+            <%= render :partial => "todo_item", :locals => { todo: todo } %>
             <% end %>
         </tbody>
     </table>
 </div>
+
+<script>
+$(function() {
+    $('#todo_list').sortable({
+        update: function(e, ui) {
+            let item = ui.item;
+            let item_data = item.data();
+            let params = { _method: 'put' };
+            params[item_data.modelName] = { row_order_position: item.index() }
+            $.ajax({
+                type: 'POST',
+                url: item_data.updateUrl,
+                dataType: 'json',
+                data: params
+            });
+        },
+        stop: function(e, ui) {
+            ui.item.children('td').not('.item__status').effect('highlight', { color: "#FFFFCC" }, 500)
+        }
+    });
+});
+</script>

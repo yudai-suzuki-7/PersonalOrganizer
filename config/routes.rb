@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   resources :events
   resources :logs
   resources :todos
+  resources :todos do
+    put :sort
+  end
   patch 'todo_check/:id' => 'todos#check' ,as: "todo_check"
   resources :booklogs
   get 'books' => 'books#search'

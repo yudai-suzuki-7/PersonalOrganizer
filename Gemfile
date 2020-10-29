@@ -74,9 +74,11 @@ gem 'momentjs-rails'
 gem 'simple_calendar'
 gem 'rename'
 gem 'bootstrap', '~> 4.3.1'
-gem "refile", require: "refile/rails", github: 'manfe/refile'
-gem "refile-mini_magick"
+gem 'refile', require: "refile/rails", github: 'manfe/refile'
+gem 'refile-mini_magick'
 gem 'rakuten_web_service'
+gem 'ranked-model'
+gem 'jquery-ui-rails'
 
 gem 'devise-i18n'
 gem 'devise-i18n-views'

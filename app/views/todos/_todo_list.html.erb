@@ -1,4 +1,4 @@
-<tr id="todo_<%= todo.position %>">
+<tr id="todo_list">
     <td class="text-center check-icon todo-check-button">
         <% if todo.todo_status == "done" %>
         <%= link_to "", todo_check_path(todo), method: :patch,class:"btn-link glyphicon glyphicon-ok-circle text-danger" %>

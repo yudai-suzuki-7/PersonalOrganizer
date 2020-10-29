@@ -32,8 +32,8 @@
         </tbody>
     </table>
 </div>
+
 <script>
-    
 // table_sort.js
 $(function() {
   return $('.table-sortable').sortable({
@@ -49,10 +49,6 @@ $(function() {
         data: $('.table-sortable').sortable('serialize')
       });
     },
-    // ここはおまけで変更完了エフェクトを付け足す
-    stop: function(e, ui) {
-      return ui.item.children('td').effect('highlight');
-    }
   });
 });
 </script>

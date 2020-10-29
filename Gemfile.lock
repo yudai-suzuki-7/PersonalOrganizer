@@ -51,8 +51,6 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    acts_as_list (1.0.2)
-      activerecord (>= 4.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     airbrussh (1.4.0)
@@ -225,6 +223,8 @@ GEM
     rainbow (3.0.0)
     rake (13.0.1)
     rakuten_web_service (1.12.0)
+    ranked-model (0.4.6)
+      activerecord (>= 4.2)
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -342,7 +342,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts_as_list
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.3.1)
   byebug
@@ -368,6 +367,7 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 5.2.4, >= 5.2.4.3)
   rakuten_web_service
+  ranked-model
   refile!
   refile-mini_magick
   rename

@@ -10,6 +10,8 @@ ja:
         title: タイトル
       event:
         title: タイトル
+        start_date: 開始日
+        end_date: 終了日
     errors:
       models:
         user:
@@ -23,6 +25,10 @@ ja:
         event:
           attributes:
             title:
+              blank: "を入力してください。"
+            start_date:
+              blank: "を入力してください。"
+            end_date:
               blank: "を入力してください。"
   date:
     formats:

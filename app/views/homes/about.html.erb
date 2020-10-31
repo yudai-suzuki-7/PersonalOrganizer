@@ -1,92 +1,109 @@
 <div class="row">
-    <h1 class="px-5 mt-5">このサイトについて</h1>
-    <div id="" class="col-12  px-5 mt-5">
-        近年書類の電子化が進んでおり、今まで紙だった本電子書籍化が進んできている。 そんな中、スケジュールや日記などをスマホ等のデバイスで管理している人も多くなってきている。 色々な種類のリフィルの中から好きな物を選んで自分だけのオリジナル手帳を作る楽しさや必要なものを選択して自分の使いやすいものにしていけるのはシステム手帳ならではだと思う。 自分の好きなリフィルを選ぶ楽しみはのこしつつ、WEB上ならではのPCやスマホなどの複数のデバイスからのアクセスや、両方のいいとこ取りができるシステム手帳ができないかと考えた。
+    <h1 class="about-title px-3 ml-5 mt-5">このサイトについて</h1>
+    <div class="Text col-10 mx-auto px-5 mt-4">
+        近年IT技術の進歩により,書籍の電子化やカレンダープリケーションを利用したスケジュール管理など日常での脱紙化が進んできています。<br>
+        一方で,手帳を利用してスケジュールを管理する人や日記を書き留める人もまだまだ沢山います。<br>
+        色々な種類のリフィルの中から好きな物を選んで自分だけのオリジナル手帳を作る楽しさや,必要なものを選択して使いやすくカスタマイズ<br>できるのはシステム手帳ならではの良いところだと思います。<br>
+        自分の好きな<span class="Text-Span JS_ScrollAnimationItem">リフィルを選ぶ機能</span>はのこしつつ,WEB上ならではのPCやスマホなどの<span class="Text-Span JS_ScrollAnimationItem">複数のデバイスからのアクセス</span>など<br>両方のいいとこ取りができるシステム手帳ができないかとこのアプリを作製しました。
     </div>
 </div>
-<div class="a">
-    <div class="row">
-        <div class="col-6 mx-auto px-5 mt-5">
-            <%= image_tag 'schedule.png',width: "80%", height: "80%"%>
+<div class="row">
+    <h1 class="about-title px-3 ml-5 mt-5">このサイトの使い方</h1>
+</div>
+<div class="slick_image">
+    <div class="row bg-light">
+        <div class="col-8 mx-auto px-5 my-5">
+            <h3>-スケジュール-</h3>
+            <%= image_tag 'schedule.png',width: "100%", height: "100%", class:"mx-auto my-5 py-0"  %>
         </div>
-        <div class="col-6 mx-auto px-5 mt-5">
-            <p>スケジュールを管理することで仕事の無駄がなくなり、効率的に仕事を進められます。 細かく時間を把握することで、仕事を効率化し、充実したプライベートの時間を確保するためにも役立ちます。
-                計画的に物事を進めていきましょう。</p>
-        </div>
-    </div>
-    <div class="row on-time">
-        <div class="col-6 mx-auto px-5 mt-5">
-            <%= image_tag 'todo.png', width: "80%", height: "80%" %>
-        </div>
-        <div class="col-6 mx-auto px-5 mt-5">
+        <div class="col-6 mx-auto px-5 mb-5">
             <p>
-                新しい発見・学び、様々なシーンでの感情や思いを記して、1日の振り返りをしましょう。
-                日記を書くことによりストレス発散になり、気持ちや感情を整理することができます。
-                また読み返すことで、自分の考え方や行動パターンなど新たな気づきを得ることができるかもしれません。
+                スケジュールを管理することで仕事の無駄がなくなり、効率的に仕事を進められます。 <br>細かく時間を把握することで、仕事を効率化し、充実したプライベートの時間を確保するためにも役立ちます。
+                計画的に物事を進めていきましょう。
             </p>
         </div>
     </div>
-    <div class="row on-time">
-        <div class="col-6 mx-auto text-center px-5 mt-5">
-            <%= image_tag 'log.png', width: "80%", height: "80%"%>
+    <div class="row on-time bg-light">
+        <div class="col-8 mx-auto px-5 my-5">
+            <h3>-ToDoリスト-</h3>
+            <%= image_tag 'todo.png', width: "100%", height: "100%", class:"mx-auto my-5 py-0" %>
         </div>
-        <div class="col-6 mx-auto px-5 mt-5">
+        <div class="col-5 mx-auto mb-5">
             <p>
-                夢や目標は何ですか？
-                実際に文字に起こすことで自分が望んでいることを改めて認識するのに役立ちます。
-                大きな夢や小さな夢をたくさん記録していきましょう。
-                人生は有限です。夢や目標に向かって充実したものにしていきましょう。
+                やらなければいけないことをメモしておきましょう。<br>
+                優先順位をつけて,ドラッグ＆ドロップで順番を入れ替えることもできます。
             </p>
         </div>
     </div>
-    <div class="row on-time">
-        <div class="col-6 mx-auto text-center px-5 mt-5">
-            <%= image_tag 'booklog.png', width: "80%", height: "80%"%>
+    <div class="row on-time bg-light">
+        <div class="col-8 mx-auto px-5 my-5">
+            <h3>-日記-</h3>
+            <%= image_tag 'log.png', width: "100%", height: "100%",class:"mx-auto my-5 py-0"  %>
         </div>
-        <div class="col-6 mx-auto px-5 mt-5">
+        <div class="col-5 mx-auto px-5 mb-5">
             <p>
-                夢や目標は何ですか？
-                実際に文字に起こすことで自分が望んでいることを改めて認識するのに役立ちます。
-                大きな夢や小さな夢をたくさん記録していきましょう。
-                人生は有限です。夢や目標に向かって充実したものにしていきましょう。
+                新しい発見・学び,感情や思いを記して1日の振り返りをしましょう。<br>
+                自分の考え方や行動パターンなど新たな気づきを得ることができるかもしれません。<br>
+                画像も貼り付けることができます。
             </p>
         </div>
     </div>
-    <div class="row on-time">
-        <div class="col-6 mx-auto text-center px-5 mt-5">
-            <%= image_tag 'wish.png', width: "80%", height: "80%"%>
+    <div class="row on-time bg-light">
+        <div class="col-8 mx-auto px-5 my-5">
+            <h3>-読書日記-</h3>
+            <%= image_tag 'booklog.png', width: "100%", height: "100%", class:"mx-auto my-5 py-0"  %>
         </div>
-        <div class="col-6 mx-auto px-5 mt-5">
+        <div class="col-4 mx-auto px-5 mb-5">
             <p>
-                夢や目標は何ですか？
-                実際に文字に起こすことで自分が望んでいることを改めて認識するのに役立ちます。
-                大きな夢や小さな夢をたくさん記録していきましょう。
-                人生は有限です。夢や目標に向かって充実したものにしていきましょう。
+                読んだ本の感想を記録していきましょう。<br>
+                検索して保存したい本を選択して感想を書き留めましょう。<br>
+                読んだ本のリストにもなります。
+            </p>
+        </div>
+    </div>
+    <div class="row on-time bg-light">
+        <div class="col-8 mx-auto px-5 my-5">
+            <h3>-やりたいことリスト-</h3>
+            <%= image_tag 'wish.png', width: "100%", height: "100%", class:"mx-auto my-5 py-0"  %>
+        </div>
+        <div class="col-4 mx-auto px-5 mb-5">
+            <p>
+                夢や目標を掲げて人生を充実したものにしましょう！<br>
+                ロジックツリーを利用して目標達成に向けて進みましょう。
+            </p>
+        </div>
+    </div>
+    <div class="row on-time bg-light">
+        <div class="col-8 mx-auto px-5 my-5">
+            <h3>-設定方法-</h3>
+            <%= image_tag 'wish.png', width: "100%", height: "100%", class:"mx-auto my-5 py-0"  %>
+        </div>
+        <div class="col-5 mx-auto px-5 mb-5">
+            <p>
+                Settingにて情報の変更・消去,機能の表示非表示ができます。<br>
+                情報を変更したら現在のパスワードを入力して変更するをクリックしてください。
             </p>
         </div>
     </div>
 </div>
-<script>
-function typing(str = "") {
-    let buf = document.getElementById("typing").innerHTML; //書き込み済みの文字を要素から取得
-    let writed = buf.length; //書き込み済みの文字数を取得
-    let write = "";
-    if (writed < str.length) {
-        write = str.charAt(writed); //1文字だけ取得する
-    } else {
-        buf = ""; //今回は何度も繰り返すために内容を消去します
-    }
-    document.getElementById("typing").innerHTML = buf + write; //1文字だけ追加していく
-}
-const str = document.getElementById("typing").innerHTML; //書き込む文字を要素から取得
-const delay = 200 //1文字が表示される時間
-document.getElementById("typing").innerHTML = "";
-window.setInterval(function() { typing(str); }, delay);
-</script>
 <script>
 $(function() {
-    $('.a').slick({
+    $('.slick_image').slick({
         dots: true,
     });
+});
+</script>
+<script>
+$(window).on('scroll', function() {
+
+    $(".JS_ScrollAnimationItem").each(function() {
+        var position = $(this).offset().top;
+        var scroll = $(window).scrollTop();
+        var windowHeight = $(window).height();
+        if (scroll > position - windowHeight) {
+            $(this).addClass('isActive');
+        }
+    });
+
 });
 </script>

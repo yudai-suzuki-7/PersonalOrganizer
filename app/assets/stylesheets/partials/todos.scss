@@ -26,3 +26,9 @@ $font: #333;
 .head-text {
     font-size: 15px;
 }
+
+.todo_list {
+  tr.item {
+    cursor: row-resize;
+  }
+}

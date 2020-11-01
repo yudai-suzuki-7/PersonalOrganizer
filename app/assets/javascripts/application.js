@@ -11,8 +11,10 @@
 // about supported directives.
 //
 //= require activestorage
-//= require rails-ujs
 //= require jquery3
+//= require rails-ujs
+//= require jquery-ui/widgets/sortable
+//= require jquery-ui/effects/effect-highlight
 //= require moment
 //= require fullcalendar
 //= require fullcalendar/lang/ja

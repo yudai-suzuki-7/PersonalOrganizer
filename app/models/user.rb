@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :event, dependent: :destroy
   has_many :log, dependent: :destroy
   has_many :wish, dependent: :destroy
+  has_many :wish, dependent: :destroy
 
   enum todo_status: { notuse1: 0, use1: 1 }
   enum booklog_status: { notuse2: 0, use2: 1 }

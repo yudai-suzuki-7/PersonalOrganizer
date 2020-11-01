@@ -12,8 +12,9 @@
     </div>
     <div class="col-5">
         <div class="row mx-3 event-form">
-            <h3>-予定の編集-
-            </h3>
+            <h4>-予定の編集-</h4>
+        </div>
+        <div class="row mx-3 event-form">
             <%= form_with(model: @event, local: true) do |form| %>
             <% if @event.errors.any? %>
             <div class="error-messages">
@@ -42,11 +43,11 @@
             </div>
             <div class="field">
                 <%= form.label :start_date,"開始" %>
-                <%= form.datetime_select :start_date, use_month_numbers: true  %>
+                <%= form.datetime_field :start_date, use_month_numbers: true %>
             </div>
             <div class="field">
                 <%= form.label :end_date,"終了" %>
-                <%= form.datetime_select :end_date, use_month_numbers: true  %>
+                <%= form.datetime_field :end_date, use_month_numbers: true  %>
             </div>
             <div class="actions">
                 <%= form.submit('保存',class:"btn btn-secondary btn-sm") %>

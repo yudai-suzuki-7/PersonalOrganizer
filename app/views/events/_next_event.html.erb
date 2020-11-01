@@ -18,10 +18,10 @@
                     <%= event.title %>
                 </td>
                 <td>
-                    <%= event.start_date.strftime("%m-%d %H:%M:%S") %>
+                    <%= event.start_date.strftime("%Y年%m月%d日 %H:%M") %>
                 </td>
                 <td>
-                    <%= event.end_date.strftime("%m-%d %H:%M:%S") %>
+                    <%= event.end_date.strftime("%Y年%m月%d日 %H:%M") %>
                 </td>
                 <td>
                     <%= link_to "", event,class:"btn-link  glyphicon glyphicon-search" %>

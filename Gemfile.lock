@@ -220,6 +220,8 @@ GEM
     rainbow (3.0.0)
     rake (13.0.1)
     rakuten_web_service (1.12.0)
+    ranked-model (0.4.6)
+      activerecord (>= 4.2)
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -354,12 +356,14 @@ DEPENDENCIES
   fullcalendar-rails
   jbuilder (~> 2.5)
   jquery-rails
+  jquery-ui-rails
   listen (>= 3.0.5, < 3.2)
   momentjs-rails
   mysql2
   puma (~> 3.11)
   rails (~> 5.2.4, >= 5.2.4.3)
   rakuten_web_service
+  ranked-model
   refile!
   refile-mini_magick
   rename

@@ -77,7 +77,6 @@ ActiveRecord::Schema.define(version: 2020_10_29_114712) do
     t.integer "todo_status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "position"
     t.integer "row_order"
   end
 
